@@ -1,1692 +1,1814 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Housemore — Run Your Cleaning Business, Not Paperwork</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="font" type="font/woff2" crossorigin
-  href="https://fonts.gstatic.com/s/fraunces/v31/6NUu8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnDSg.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin
-  href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkJxhTmf3ZGMZpg.woff2">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-<noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap">
-</noscript>
-<style>
-  :root {
-    --teal: #0D9488;
-    --teal-light: #14B8A6;
-    --teal-dark: #0F766E;
-    --teal-faint: #F0FDFA;
-    --teal-muted: #CCFBF1;
-    --dark: #0D1F1E;
-    --mid: #374151;
-    --muted: #6B7280;
-    --border: #E5E7EB;
-    --bg: #FFFFFF;
-    --bg-soft: #F9FAFB;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--dark);
-    background: var(--bg);
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 6%;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(229,231,235,0.6);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-
-  .nav-logo-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .nav-logo-text {
-    font-family: 'Fraunces', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--dark);
-    letter-spacing: -0.3px;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--mid);
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--teal); }
-
-  .nav-cta {
-    background: var(--teal);
-    color: white !important;
-    padding: 10px 22px;
-    border-radius: 8px;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--teal-dark) !important; color: white !important; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-    padding: 120px 6% 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 30%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(13,148,136,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--teal-muted);
-    color: var(--teal-dark);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--teal);
-    border-radius: 50%;
-  }
-
-  .hero-title {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(42px, 5.5vw, 68px);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-    color: var(--dark);
-    margin-bottom: 24px;
-    animation: fadeUp 0.6s ease 0.1s both;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--teal);
-    font-weight: 300;
-  }
-
-  .hero-subtitle {
-    font-size: 18px;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 480px;
-    margin-bottom: 40px;
-    font-weight: 400;
-    animation: fadeUp 0.6s ease 0.2s both;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    animation: fadeUp 0.6s ease 0.3s both;
-  }
-
-  .btn-primary {
-    background: var(--teal);
-    color: white;
-    padding: 16px 32px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.1s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-primary:hover {
-    background: var(--teal-dark);
-    transform: translateY(-1px);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--mid);
-    padding: 16px 28px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1.5px solid var(--border);
-    transition: border-color 0.2s, color 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--teal);
-    color: var(--teal);
-  }
-
-  .hero-trust {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 40px;
-    animation: fadeUp 0.6s ease 0.4s both;
-  }
-
-  .trust-avatars {
-    display: flex;
-  }
-
-  .trust-avatar {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 2px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    color: white;
-    margin-left: -8px;
-  }
-
-  .trust-avatar:first-child { margin-left: 0; }
-
-  .trust-text {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .trust-text strong {
-    color: var(--dark);
-  }
-
-  /* ─── PHONE MOCKUP ─── */
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    animation: fadeUp 0.8s ease 0.2s both;
-  }
-
-  .phone-wrap {
-    position: relative;
-    z-index: 2;
-  }
-
-  .phone-frame {
-    width: 280px;
-    height: 560px;
-    background: var(--dark);
-    border-radius: 44px;
-    padding: 12px;
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,0.1) inset,
-      0 30px 80px rgba(0,0,0,0.25),
-      0 8px 24px rgba(0,0,0,0.15);
-    position: relative;
-  }
-
-  .phone-screen {
-    width: 100%;
-    height: 100%;
-    background: #F9FAFB;
-    border-radius: 34px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* ─── PROBLEM SECTION ─── */
-  .problem {
-    background: var(--dark);
-    padding: 100px 6%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .problem::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at 20% 50%, rgba(13,148,136,0.15) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .section-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--teal-light);
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .problem h2 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 600;
-    color: white;
-    line-height: 1.15;
-    letter-spacing: -1px;
-    max-width: 580px;
-    margin-bottom: 20px;
-  }
-
-  .problem h2 em {
-    font-style: italic;
-    font-weight: 300;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .problem-desc {
-    color: rgba(255,255,255,0.55);
-    font-size: 17px;
-    line-height: 1.7;
-    max-width: 520px;
-    margin-bottom: 64px;
-  }
-
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .pain-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 28px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .pain-card:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: rgba(13,148,136,0.3);
-  }
-
-  .pain-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  .pain-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 8px;
-  }
-
-  .pain-desc {
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.6;
-  }
-
-  /* ─── FEATURES ─── */
-  .features {
-    padding: 120px 6%;
-    background: var(--bg-soft);
-  }
-
-  .section-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 80px;
-  }
-
-  .section-header h2 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(30px, 3.5vw, 48px);
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1.15;
-    letter-spacing: -0.8px;
-    margin-bottom: 16px;
-  }
-
-  .section-header p {
-    font-size: 17px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .feature-card {
-    background: white;
-    border-radius: 20px;
-    padding: 36px 32px;
-    border: 1px solid var(--border);
-    transition: box-shadow 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--teal), var(--teal-light));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-
-  .feature-card:hover {
-    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-    transform: translateY(-3px);
-  }
-
-  .feature-card:hover::before {
-    transform: scaleX(1);
-  }
-
-  .feature-card.featured {
-    background: var(--dark);
-    border-color: transparent;
-    grid-row: span 1;
-  }
-
-  .feature-icon-wrap {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: var(--teal-faint);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
-  .feature-card.featured .feature-icon-wrap {
-    background: rgba(20,184,166,0.2);
-  }
-
-  .feature-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 10px;
-    letter-spacing: -0.2px;
-  }
-
-  .feature-card.featured .feature-title { color: white; }
-
-  .feature-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-
-  .feature-card.featured .feature-desc { color: rgba(255,255,255,0.55); }
-
-  /* ─── HOW IT WORKS ─── */
-  .how {
-    padding: 120px 6%;
-  }
-
-  .how-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    margin-top: 60px;
-  }
-
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .step {
-    display: flex;
-    gap: 20px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--border);
-    cursor: default;
-    transition: all 0.2s;
-  }
-
-  .step:last-child { border-bottom: none; }
-
-  .step-num {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--teal-muted);
-    color: var(--teal-dark);
-    font-weight: 700;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .step:hover .step-num {
-    background: var(--teal);
-    color: white;
-  }
-
-  .step-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 6px;
-    letter-spacing: -0.2px;
-  }
-
-  .step-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  .how-visual {
-    position: relative;
-  }
-
-  .time-saved-block {
-    background: var(--dark);
-    border-radius: 24px;
-    padding: 44px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .time-saved-block::before {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    right: -40px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(13,148,136,0.3) 0%, transparent 70%);
-  }
-
-  .time-figure {
-    font-family: 'Fraunces', serif;
-    font-size: 80px;
-    font-weight: 700;
-    color: var(--teal-light);
-    line-height: 1;
-    letter-spacing: -3px;
-  }
-
-  .time-unit {
-    font-size: 24px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.5);
-    margin-left: 4px;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .time-label {
-    font-size: 18px;
-    color: white;
-    font-weight: 500;
-    margin-top: 12px;
-    margin-bottom: 32px;
-  }
-
-  .time-tasks {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .time-task {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-  }
-
-  .time-task::before {
-    content: '';
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: rgba(13,148,136,0.3);
-    border: 1.5px solid var(--teal);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314B8A6' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-    background-size: 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  /* ─── PRICING ─── */
-  .pricing {
-    padding: 120px 6%;
-    background: var(--bg-soft);
-  }
-
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    align-items: stretch;
-  }
-
-  .pricing-card {
-    background: white;
-    border: 1.5px solid var(--border);
-    border-radius: 20px;
-    padding: 28px 24px;
-    position: relative;
-    transition: box-shadow 0.2s;
-  }
-
-  .pricing-card.hero {
-    background: var(--dark);
-    border-color: transparent;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.18);
-    min-height: 0;
-    display: block;
-    grid-template-columns: unset;
-    align-items: unset;
-    gap: unset;
-    padding: 28px 24px;
-    overflow: visible;
-  }
-
-  .pricing-card:hover:not(.hero) {
-    box-shadow: 0 12px 36px rgba(0,0,0,0.07);
-  }
-
-  .pricing-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--teal);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 5px 16px;
-    border-radius: 100px;
-    white-space: nowrap;
-  }
-
-  .plan-name {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-
-  .pricing-card.hero .plan-name { color: rgba(255,255,255,0.5); }
-
-  .plan-price {
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-    margin-bottom: 6px;
-  }
-
-  .plan-dollar {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--dark);
-  }
-
-  .pricing-card.hero .plan-dollar { color: white; }
-
-  .plan-amount {
-    font-family: 'Fraunces', serif;
-    font-size: 52px;
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1;
-    letter-spacing: -2px;
-  }
-
-  .pricing-card.hero .plan-amount { color: white; }
-
-  .plan-period {
-    font-size: 14px;
-    color: var(--muted);
-  }
-
-  .pricing-card.hero .plan-period { color: rgba(255,255,255,0.45); }
-
-  .plan-desc {
-    font-size: 13px;
-    color: var(--muted);
-    margin: 14px 0 24px;
-    line-height: 1.6;
-  }
-
-  .pricing-card.hero .plan-desc { color: rgba(255,255,255,0.55); }
-
-  .plan-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 0;
-  }
-
-  .plan-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--mid);
-    line-height: 1.5;
-  }
-
-  .pricing-card.hero .plan-features li { color: rgba(255,255,255,0.75); }
-
-  .plan-features li::before {
-    content: '✓';
-    color: var(--teal-light);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .plan-cta {
-    display: block;
-    text-align: center;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    margin-top: 28px;
-  }
-
-  .plan-cta.outline {
-    border: 1.5px solid var(--border);
-    color: var(--mid);
-  }
-
-  .plan-cta.outline:hover {
-    border-color: var(--teal);
-    color: var(--teal);
-  }
-
-  .plan-cta.solid {
-    background: var(--teal);
-    color: white;
-  }
-
-  .plan-cta.solid:hover { background: var(--teal-dark); }
-
-  .plan-seat {
-    display: block;
-    text-align: center;
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 10px;
-  }
-
-  /* ─── COMPARISON ─── */
-  .vs-banner {
-    margin-top: 50px;
-    background: var(--teal-muted);
-    border-radius: 16px;
-    padding: 28px 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    max-width: 700px;
-    margin: 50px auto 0;
-  }
-
-  .vs-item {
-    text-align: center;
-  }
-
-  .vs-label {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 4px;
-    font-weight: 500;
-  }
-
-  .vs-price {
-    font-family: 'Fraunces', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--dark);
-    letter-spacing: -1px;
-  }
-
-  .vs-price.teal { color: var(--teal-dark); }
-
-  .vs-divider {
-    font-size: 22px;
-    color: var(--border);
-    font-weight: 300;
-  }
-
-  /* ─── TESTIMONIAL ─── */
-  .social-proof {
-    padding: 100px 6%;
-  }
-
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    margin-top: 60px;
-  }
-
-  .testimonial-card {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    transition: box-shadow 0.2s;
-  }
-
-  .testimonial-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-  }
-
-  .stars {
-    color: #F59E0B;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-  }
-
-  .testimonial-quote {
-    font-size: 15px;
-    color: var(--mid);
-    line-height: 1.7;
-    margin-bottom: 20px;
-    font-style: italic;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .author-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 13px;
-    color: white;
-    flex-shrink: 0;
-  }
-
-  .author-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--dark);
-  }
-
-  .author-role {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* ─── CTA ─── */
-  .cta-section {
-    padding: 100px 6%;
-    background: var(--dark);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(13,148,136,0.25) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .cta-section h2 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(30px, 4vw, 54px);
-    font-weight: 700;
-    color: white;
-    letter-spacing: -1px;
-    line-height: 1.12;
-    margin-bottom: 20px;
-    position: relative;
-  }
-
-  .cta-section h2 em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--teal-light);
-  }
-
-  .cta-section p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 40px;
-    position: relative;
-  }
-
-  .cta-actions {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-  }
-
-  .cta-sub {
-    margin-top: 20px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-    position: relative;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: #0A1614;
-    padding: 60px 6% 30px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 50px;
-  }
-
-  .footer-brand p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.7;
-    margin-top: 14px;
-    max-width: 240px;
-  }
-
-  .footer-col-title {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 16px;
-  }
-
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-links a {
-    text-decoration: none;
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--teal-light); }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: rgba(255,255,255,0.25);
-  }
-
-  /* ─── SCREENSHOTS ─── */
-  .screenshots {
-    background: var(--dark);
-    padding: 120px 6%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .screenshots::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(13,148,136,0.18) 0%, transparent 65%);
-    pointer-events: none;
-  }
-
-  .screenshots .section-header {
-    margin-bottom: 64px;
-  }
-
-  .screenshots .section-header h2 {
-    color: white;
-  }
-
-  .screenshots .section-header p {
-    color: rgba(255,255,255,0.5);
-  }
-
-  .screenshots-phones {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 48px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .screenshot-phone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .screenshot-caption {
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    max-width: 240px;
-    line-height: 1.5;
-  }
-
-  /* ─── HOW VISUAL PHONE ─── */
-  .how-phone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 28px;
-  }
-
-  .how-phone .phone-frame {
-    width: 220px;
-    height: 440px;
-  }
-
-  .how-phone-caption {
-    font-size: 13px;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding-top: 100px; }
-    .hero-visual { display: none; }
-    .pain-grid { grid-template-columns: 1fr; }
-    .features-grid { grid-template-columns: 1fr 1fr; }
-    .how-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
-    .pricing-card.hero { box-shadow: none; }
-    .testimonial-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
-    .vs-banner { flex-direction: column; gap: 20px; }
-  }
-
-  @media (max-width: 768px) {
-    .screenshots-phones { flex-direction: column; align-items: center; }
-    .screenshots-phones .screenshot-phone:last-child { display: none; }
-  }
-
-  @media (max-width: 600px) {
-    .features-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-  }
-
-  .animate-hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .animate-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Housemore — Run Your Cleaning Business, Not Paperwork</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/fraunces/v31/6NUu8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnDSg.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkJxhTmf3ZGMZpg.woff2">
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap">
+  </noscript>
+  <style>
+    :root {
+      --teal: #0D9488;
+      --teal-light: #14B8A6;
+      --teal-dark: #0F766E;
+      --teal-faint: #F0FDFA;
+      --teal-muted: #CCFBF1;
+      --dark: #0D1F1E;
+      --mid: #374151;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --bg: #FFFFFF;
+      --bg-soft: #F9FAFB;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 6%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .nav-logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .nav-cta {
+      background: var(--teal);
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-dark) !important;
+      color: white !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 120px 6% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 30%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-muted);
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(42px, 5.5vw, 68px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--dark);
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--teal);
+      font-weight: 300;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 40px;
+      font-weight: 400;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--mid);
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+
+    .trust-avatars {
+      display: flex;
+    }
+
+    .trust-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      margin-left: -8px;
+    }
+
+    .trust-avatar:first-child {
+      margin-left: 0;
+    }
+
+    .trust-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .trust-text strong {
+      color: var(--dark);
+    }
+
+    /* ─── PHONE MOCKUP ─── */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+
+    .phone-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .phone-frame {
+      width: 280px;
+      height: 560px;
+      background: var(--dark);
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+        0 30px 80px rgba(0, 0, 0, 0.25),
+        0 8px 24px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #F9FAFB;
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ─── PROBLEM SECTION ─── */
+    .problem {
+      background: var(--dark);
+      padding: 100px 6%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(13, 148, 136, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .problem h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 600;
+      color: white;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      max-width: 580px;
+      margin-bottom: 20px;
+    }
+
+    .problem h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .problem-desc {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 64px;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pain-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .pain-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(13, 148, 136, 0.3);
+    }
+
+    .pain-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .pain-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .pain-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.6;
+    }
+
+    /* ─── FEATURES ─── */
+    .features {
+      padding: 120px 6%;
+      background: var(--bg-soft);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 80px;
+    }
+
+    .section-header h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(30px, 3.5vw, 48px);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-card.featured {
+      background: var(--dark);
+      border-color: transparent;
+      grid-row: span 1;
+    }
+
+    .feature-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--teal-faint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card.featured .feature-icon-wrap {
+      background: rgba(20, 184, 166, 0.2);
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      letter-spacing: -0.2px;
+    }
+
+    .feature-card.featured .feature-title {
+      color: white;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .feature-card.featured .feature-desc {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .how {
+      padding: 120px 6%;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: default;
+      transition: all 0.2s;
+    }
+
+    .step:last-child {
+      border-bottom: none;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--teal-muted);
+      color: var(--teal-dark);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .step:hover .step-num {
+      background: var(--teal);
+      color: white;
+    }
+
+    .step-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .how-visual {
+      position: relative;
+    }
+
+    .time-saved-block {
+      background: var(--dark);
+      border-radius: 24px;
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .time-saved-block::before {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.3) 0%, transparent 70%);
+    }
+
+    .time-figure {
+      font-family: 'Fraunces', serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--teal-light);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .time-unit {
+      font-size: 24px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
+      margin-left: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .time-label {
+      font-size: 18px;
+      color: white;
+      font-weight: 500;
+      margin-top: 12px;
+      margin-bottom: 32px;
+    }
+
+    .time-tasks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .time-task {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .time-task::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(13, 148, 136, 0.3);
+      border: 1.5px solid var(--teal);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314B8A6' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-size: 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing {
+      padding: 120px 6%;
+      background: var(--bg-soft);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+
+    .pricing-card.hero {
+      background: var(--dark);
+      border-color: transparent;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+      min-height: 0;
+      display: block;
+      grid-template-columns: unset;
+      align-items: unset;
+      gap: unset;
+      padding: 28px 24px;
+      overflow: visible;
+    }
+
+    .pricing-card:hover:not(.hero) {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.07);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pricing-card.hero .plan-name {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .plan-dollar {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .pricing-card.hero .plan-dollar {
+      color: white;
+    }
+
+    .plan-amount {
+      font-family: 'Fraunces', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .pricing-card.hero .plan-amount {
+      color: white;
+    }
+
+    .plan-period {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .pricing-card.hero .plan-period {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .plan-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 14px 0 24px;
+      line-height: 1.6;
+    }
+
+    .pricing-card.hero .plan-desc {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .pricing-card.hero .plan-features li {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .plan-features li::before {
+      content: '✓';
+      color: var(--teal-light);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 28px;
+    }
+
+    .plan-cta.outline {
+      border: 1.5px solid var(--border);
+      color: var(--mid);
+    }
+
+    .plan-cta.outline:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .plan-cta.solid {
+      background: var(--teal);
+      color: white;
+    }
+
+    .plan-cta.solid:hover {
+      background: var(--teal-dark);
+    }
+
+    .plan-seat {
+      display: block;
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-top: 10px;
+    }
+
+    /* ─── COMPARISON ─── */
+    .vs-banner {
+      margin-top: 50px;
+      background: var(--teal-muted);
+      border-radius: 16px;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      max-width: 700px;
+      margin: 50px auto 0;
+    }
+
+    .vs-item {
+      text-align: center;
+    }
+
+    .vs-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .vs-price {
+      font-family: 'Fraunces', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -1px;
+    }
+
+    .vs-price.teal {
+      color: var(--teal-dark);
+    }
+
+    .vs-divider {
+      font-size: 22px;
+      color: var(--border);
+      font-weight: 300;
+    }
+
+    /* ─── TESTIMONIAL ─── */
+    .social-proof {
+      padding: 100px 6%;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 60px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: box-shadow 0.2s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    .stars {
+      color: #F59E0B;
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-quote {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .author-role {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      padding: 100px 6%;
+      background: var(--dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(13, 148, 136, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(30px, 4vw, 54px);
+      font-weight: 700;
+      color: white;
+      letter-spacing: -1px;
+      line-height: 1.12;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--teal-light);
+    }
+
+    .cta-section p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .cta-sub {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.3);
+      position: relative;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0A1614;
+      padding: 60px 6% 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.35);
+      line-height: 1.7;
+      margin-top: 14px;
+      max-width: 240px;
+    }
+
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.45);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ─── SCREENSHOTS ─── */
+    .screenshots {
+      background: var(--dark);
+      padding: 120px 6%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screenshots::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .screenshots .section-header {
+      margin-bottom: 64px;
+    }
+
+    .screenshots .section-header h2 {
+      color: white;
+    }
+
+    .screenshots .section-header p {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .screenshots-phones {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .screenshot-phone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .screenshot-caption {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.45);
+      max-width: 240px;
+      line-height: 1.5;
+    }
+
+    /* ─── HOW VISUAL PHONE ─── */
+    .how-phone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .how-phone .phone-frame {
+      width: 220px;
+      height: 440px;
+    }
+
+    .how-phone-caption {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 100px;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .pain-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+
+      .pricing-card.hero {
+        box-shadow: none;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .vs-banner {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .screenshots-phones {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .screenshots-phones .screenshot-phone:last-child {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    .animate-hidden {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .animate-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">
-    <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Teal gradient background -->
-      <defs>
-        <linearGradient id="navGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#14B8A6"/>
-          <stop offset="100%" stop-color="#0D9488"/>
-        </linearGradient>
-      </defs>
-      <rect width="36" height="36" rx="8" fill="url(#navGrad)"/>
-      <!-- H left vertical -->
-      <rect x="10.5" y="14" width="3.5" height="13" rx="1.75" fill="white"/>
-      <!-- H right vertical -->
-      <rect x="22" y="14" width="3.5" height="13" rx="1.75" fill="white"/>
-      <!-- H crossbar -->
-      <rect x="10.5" y="19" width="15" height="3" rx="1.5" fill="white"/>
-      <!-- Roof chevron above -->
-      <polyline points="8.5,14 18,7.5 27.5,14" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span class="nav-logo-text">Housemore</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#" class="nav-cta">Start Free Trial</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Teal gradient background -->
+        <defs>
+          <linearGradient id="navGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#14B8A6" />
+            <stop offset="100%" stop-color="#0D9488" />
+          </linearGradient>
+        </defs>
+        <rect width="36" height="36" rx="8" fill="url(#navGrad)" />
+        <!-- H left vertical -->
+        <rect x="10.5" y="14" width="3.5" height="13" rx="1.75" fill="white" />
+        <!-- H right vertical -->
+        <rect x="22" y="14" width="3.5" height="13" rx="1.75" fill="white" />
+        <!-- H crossbar -->
+        <rect x="10.5" y="19" width="15" height="3" rx="1.5" fill="white" />
+        <!-- Roof chevron above -->
+        <polyline points="8.5,14 18,7.5 27.5,14" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+      <span class="nav-logo-text">Housemore</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#" class="nav-cta">Start Free Trial</a></li>
+    </ul>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">Built for Household Services</div>
-    <h1 class="hero-title">Run your business,<br><em>not paperwork</em></h1>
-    <p class="hero-subtitle">Housemore replaces the texts, spreadsheets, and sticky notes your cleaning or lawn care business runs on. Scheduling, staff, and clients — in one app built exactly for you.</p>
-    <div class="hero-actions">
-      <a href="#pricing" class="btn-primary">
-        Start Free Trial →
-      </a>
-      <a href="#how" class="btn-secondary">
-        See How It Works
-      </a>
-    </div>
-    <div class="hero-trust">
-      <div class="trust-avatars">
-        <div class="trust-avatar" style="background:#0D9488;">E</div>
-        <div class="trust-avatar" style="background:#14B8A6;">C</div>
-        <div class="trust-avatar" style="background:#0F766E;">M</div>
-        <div class="trust-avatar" style="background:#5EEAD4;color:#0F766E;">+</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Built for Household Services</div>
+      <h1 class="hero-title">Run your business,<br><em>not paperwork</em></h1>
+      <p class="hero-subtitle">Housemore replaces the texts, spreadsheets, and sticky notes your cleaning or lawn care
+        business runs on. Scheduling, staff, and clients — in one app built exactly for you.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary">
+          Start Free Trial →
+        </a>
+        <a href="#how" class="btn-secondary">
+          See How It Works
+        </a>
       </div>
-      <div class="trust-text">
-        <strong>Small teams love it.</strong><br>
-        Built for 1–10 person household service businesses
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <div class="trust-avatar" style="background:#0D9488;">E</div>
+          <div class="trust-avatar" style="background:#14B8A6;">C</div>
+          <div class="trust-avatar" style="background:#0F766E;">M</div>
+          <div class="trust-avatar" style="background:#5EEAD4;color:#0F766E;">+</div>
+        </div>
+        <div class="trust-text">
+          <strong>Small teams love it.</strong><br>
+          Built for 1–10 person household service businesses
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- PHONE MOCKUP -->
-  <div class="hero-visual">
-    <div class="phone-wrap">
-      <div class="phone-frame">
-        <div class="phone-screen">
+    <!-- PHONE MOCKUP -->
+    <div class="hero-visual">
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <picture>
+              <source type="image/webp"
+                srcset="home_dashboard_screen-280w.webp 280w, home_dashboard_screen-560w.webp 560w" sizes="280px">
+              <img src="home_dashboard_screen.PNG"
+                alt="Housemore admin dashboard showing revenue, bookings, clients and employees"
+                style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
+                width="280" height="560" fetchpriority="high" decoding="async">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM SECTION -->
+  <section class="problem">
+    <div>
+      <span class="section-label">The Reality</span>
+      <h2>Your business runs on<br><em>10–20 hours of admin</em><br>every single week.</h2>
+      <p class="problem-desc">You didn't start a cleaning or lawn care business to spend your evenings texting
+        schedules, chasing payments, and tracking who showed up where. But here you are.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">📱</div>
+        <div class="pain-title">Scheduling via Text</div>
+        <div class="pain-desc">Back-and-forth texts to coordinate jobs, confirm times, and communicate with clients —
+          all scattered across different apps.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📋</div>
+        <div class="pain-title">Spreadsheet Chaos</div>
+        <div class="pain-desc">Client lists in one sheet, invoices in another, employee hours in a third. Nothing talks
+          to anything else.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💸</div>
+        <div class="pain-title">Payment Guessing</div>
+        <div class="pain-desc">Wondering who paid, who owes, and whether that check from two weeks ago ever cleared.
+          Financial clarity shouldn't be a full-time job.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <span class="section-label">What You Get</span>
+      <h2>Everything your crew needs. Nothing you don't.</h2>
+      <p>Built specifically for household service businesses. No bloat, no enterprise complexity — just the tools that
+        matter.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="overflow:hidden; padding:0;">
           <picture>
-            <source type="image/webp" srcset="home_dashboard_screen-280w.webp 280w, home_dashboard_screen-560w.webp 560w" sizes="280px">
-            <img
-              src="home_dashboard_screen.PNG"
-              alt="Housemore admin dashboard showing revenue, bookings, clients and employees"
-              style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
-              width="280" height="560"
-              fetchpriority="high"
-              decoding="async"
-            >
+            <source type="image/webp" srcset="calendar_heatmap-icon-104w.webp">
+            <img src="calendar_heatmap.PNG" alt=""
+              style="width:52px; height:52px; object-fit:cover; object-position:top; border-radius:10px; display:block;"
+              width="52" height="52" loading="lazy" decoding="async">
           </picture>
         </div>
+        <div class="feature-title">Smart Scheduling</div>
+        <div class="feature-desc">Book jobs, set recurring services, and manage your entire calendar in seconds.
+          Drag-and-drop simplicity for daily operations.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">📍</div>
+        <div class="feature-title">Geofence Check-In</div>
+        <div class="feature-desc">Staff automatically check in when they arrive at a job location. Know exactly when
+          work starts and ends — no manual logging needed.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">⏱️</div>
+        <div class="feature-title">Time Tracking</div>
+        <div class="feature-desc">Accurate time records for every job and every employee. Run payroll with confidence
+          using real data, not estimates.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" style="overflow:hidden; padding:0;">
+          <picture>
+            <source type="image/webp" srcset="booking_details-icon-104w.webp">
+            <img src="booking_details.PNG" alt=""
+              style="width:52px; height:52px; object-fit:cover; object-position:top; border-radius:10px; display:block;"
+              width="52" height="52" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="feature-title">Task Checklists</div>
+        <div class="feature-desc">Create custom checklists for any job type. Staff complete tasks on-site, clients see
+          exactly what was done. No more "did you clean under the couch?" calls.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">💬</div>
+        <div class="feature-title">Client Communication</div>
+        <div class="feature-desc">Professional messaging built into the app. Send job confirmations, updates, and
+          follow-ups without switching to your personal messages.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap">💰</div>
+        <div class="feature-title">Payment Tracking</div>
+        <div class="feature-desc">Log payments, track outstanding balances, and see revenue at a glance. Always know
+          exactly where your money stands.</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROBLEM SECTION -->
-<section class="problem">
-  <div>
-    <span class="section-label">The Reality</span>
-    <h2>Your business runs on<br><em>10–20 hours of admin</em><br>every single week.</h2>
-    <p class="problem-desc">You didn't start a cleaning or lawn care business to spend your evenings texting schedules, chasing payments, and tracking who showed up where. But here you are.</p>
-  </div>
-  <div class="pain-grid">
-    <div class="pain-card">
-      <div class="pain-icon">📱</div>
-      <div class="pain-title">Scheduling via Text</div>
-      <div class="pain-desc">Back-and-forth texts to coordinate jobs, confirm times, and communicate with clients — all scattered across different apps.</div>
+  <!-- SCREENSHOTS -->
+  <section class="screenshots" id="screenshots">
+    <div class="section-header">
+      <h2>See it in action</h2>
+      <p>Everything your business needs, in the palm of your hand.</p>
     </div>
-    <div class="pain-card">
-      <div class="pain-icon">📋</div>
-      <div class="pain-title">Spreadsheet Chaos</div>
-      <div class="pain-desc">Client lists in one sheet, invoices in another, employee hours in a third. Nothing talks to anything else.</div>
-    </div>
-    <div class="pain-card">
-      <div class="pain-icon">💸</div>
-      <div class="pain-title">Payment Guessing</div>
-      <div class="pain-desc">Wondering who paid, who owes, and whether that check from two weeks ago ever cleared. Financial clarity shouldn't be a full-time job.</div>
-    </div>
-  </div>
-</section>
 
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="section-header">
-    <span class="section-label">What You Get</span>
-    <h2>Everything your crew needs. Nothing you don't.</h2>
-    <p>Built specifically for household service businesses. No bloat, no enterprise complexity — just the tools that matter.</p>
-  </div>
-
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon-wrap" style="overflow:hidden; padding:0;">
-        <picture>
-          <source type="image/webp" srcset="calendar_heatmap-icon-104w.webp">
-          <img src="calendar_heatmap.PNG" alt="" style="width:52px; height:52px; object-fit:cover; object-position:top; border-radius:10px; display:block;" width="52" height="52" loading="lazy" decoding="async">
-        </picture>
+    <div class="screenshots-phones">
+      <div class="screenshot-phone">
+        <div class="phone-wrap">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <picture>
+                <source type="image/webp" srcset="calendar_heatmap-280w.webp 280w, calendar_heatmap-560w.webp 560w"
+                  sizes="280px">
+                <img src="calendar_heatmap.PNG" alt="Calendar heatmap showing monthly booking overview"
+                  style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
+                  width="280" height="560" loading="lazy" decoding="async">
+              </picture>
+            </div>
+          </div>
+        </div>
+        <p class="screenshot-caption">Visualise your whole month at a glance</p>
       </div>
-      <div class="feature-title">Smart Scheduling</div>
-      <div class="feature-desc">Book jobs, set recurring services, and manage your entire calendar in seconds. Drag-and-drop simplicity for daily operations.</div>
-    </div>
 
-    <div class="feature-card">
-      <div class="feature-icon-wrap">📍</div>
-      <div class="feature-title">Geofence Check-In</div>
-      <div class="feature-desc">Staff automatically check in when they arrive at a job location. Know exactly when work starts and ends — no manual logging needed.</div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon-wrap">⏱️</div>
-      <div class="feature-title">Time Tracking</div>
-      <div class="feature-desc">Accurate time records for every job and every employee. Run payroll with confidence using real data, not estimates.</div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon-wrap" style="overflow:hidden; padding:0;">
-        <picture>
-          <source type="image/webp" srcset="booking_details-icon-104w.webp">
-          <img src="booking_details.PNG" alt="" style="width:52px; height:52px; object-fit:cover; object-position:top; border-radius:10px; display:block;" width="52" height="52" loading="lazy" decoding="async">
-        </picture>
+      <div class="screenshot-phone">
+        <div class="phone-wrap">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <picture>
+                <source type="image/webp" srcset="bookings_screen-280w.webp 280w, bookings_screen-560w.webp 560w"
+                  sizes="280px">
+                <img src="bookings_screen.PNG" alt="Bookings screen showing all bookings and their statuses"
+                  style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
+                  width="280" height="560" loading="lazy" decoding="async">
+              </picture>
+            </div>
+          </div>
+        </div>
+        <p class="screenshot-caption">Every booking, every status, always up to date</p>
       </div>
-      <div class="feature-title">Task Checklists</div>
-      <div class="feature-desc">Create custom checklists for any job type. Staff complete tasks on-site, clients see exactly what was done. No more "did you clean under the couch?" calls.</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="section-header">
+      <span class="section-label">How It Works</span>
+      <h2>Up and running in one afternoon.</h2>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon-wrap">💬</div>
-      <div class="feature-title">Client Communication</div>
-      <div class="feature-desc">Professional messaging built into the app. Send job confirmations, updates, and follow-ups without switching to your personal messages.</div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon-wrap">💰</div>
-      <div class="feature-title">Payment Tracking</div>
-      <div class="feature-desc">Log payments, track outstanding balances, and see revenue at a glance. Always know exactly where your money stands.</div>
-    </div>
-  </div>
-</section>
-
-<!-- SCREENSHOTS -->
-<section class="screenshots" id="screenshots">
-  <div class="section-header">
-    <h2>See it in action</h2>
-    <p>Everything your business needs, in the palm of your hand.</p>
-  </div>
-
-  <div class="screenshots-phones">
-    <div class="screenshot-phone">
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <picture>
-              <source type="image/webp" srcset="calendar_heatmap-280w.webp 280w, calendar_heatmap-560w.webp 560w" sizes="280px">
-              <img
-                src="calendar_heatmap.PNG"
-                alt="Calendar heatmap showing monthly booking overview"
-                style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
-                width="280" height="560"
-                loading="lazy"
-                decoding="async"
-              >
-            </picture>
+    <div class="how-grid">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Set up your business</div>
+            <div class="step-desc">Add your company info, invite your employees, and import your client list. Takes
+              about 15 minutes — no IT required.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Book your first jobs</div>
+            <div class="step-desc">Schedule one-time or recurring services. Assign employees, set locations, and add
+              task checklists specific to each job type.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Your team goes to work</div>
+            <div class="step-desc">Staff check in via geofence, complete their task lists, and check out. You see
+              everything in real-time from the office or your phone.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">Get paid, stay organized</div>
+            <div class="step-desc">Track payments as they come in, follow up on outstanding balances, and run payroll
+              with accurate time records — all in one place.</div>
           </div>
         </div>
       </div>
-      <p class="screenshot-caption">Visualise your whole month at a glance</p>
-    </div>
 
-    <div class="screenshot-phone">
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <picture>
-              <source type="image/webp" srcset="bookings_screen-280w.webp 280w, bookings_screen-560w.webp 560w" sizes="280px">
-              <img
-                src="bookings_screen.PNG"
-                alt="Bookings screen showing all bookings and their statuses"
-                style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
-                width="280" height="560"
-                loading="lazy"
-                decoding="async"
-              >
-            </picture>
+      <div class="how-visual">
+        <div class="how-phone">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <picture>
+                <source type="image/webp" srcset="employees_screen-280w.webp 280w, employees_screen-560w.webp 560w"
+                  sizes="280px">
+                <img src="employees_screen.PNG" alt="Employees screen showing your whole team"
+                  style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
+                  width="280" height="560" loading="lazy" decoding="async">
+              </picture>
+            </div>
+          </div>
+          <p class="how-phone-caption">Your whole team, one screen</p>
+        </div>
+        <div class="time-saved-block">
+          <div class="time-figure">15<span class="time-unit">hrs</span></div>
+          <div class="time-label">saved every single week</div>
+          <div class="time-tasks">
+            <div class="time-task">No more scheduling back-and-forth</div>
+            <div class="time-task">No more manual time tracking</div>
+            <div class="time-task">No more payment follow-up chaos</div>
+            <div class="time-task">No more "did anyone show up?" calls</div>
+            <div class="time-task">No more end-of-week admin sessions</div>
           </div>
         </div>
       </div>
-      <p class="screenshot-caption">Every booking, every status, always up to date</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div class="section-header">
-    <span class="section-label">How It Works</span>
-    <h2>Up and running in one afternoon.</h2>
-  </div>
-
-  <div class="how-grid">
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <div class="step-title">Set up your business</div>
-          <div class="step-desc">Add your company info, invite your employees, and import your client list. Takes about 15 minutes — no IT required.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <div class="step-title">Book your first jobs</div>
-          <div class="step-desc">Schedule one-time or recurring services. Assign employees, set locations, and add task checklists specific to each job type.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <div class="step-title">Your team goes to work</div>
-          <div class="step-desc">Staff check in via geofence, complete their task lists, and check out. You see everything in real-time from the office or your phone.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div>
-          <div class="step-title">Get paid, stay organized</div>
-          <div class="step-desc">Track payments as they come in, follow up on outstanding balances, and run payroll with accurate time records — all in one place.</div>
-        </div>
-      </div>
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="section-header">
+      <span class="section-label">Pricing</span>
+      <h2>Half the price of the big guys.<br>Built for your business.</h2>
+      <p>No setup fees, no contracts, no hidden charges. Start free, cancel anytime.</p>
     </div>
 
-    <div class="how-visual">
-      <div class="how-phone">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <picture>
-              <source type="image/webp" srcset="employees_screen-280w.webp 280w, employees_screen-560w.webp 560w" sizes="280px">
-              <img
-                src="employees_screen.PNG"
-                alt="Employees screen showing your whole team"
-                style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
-                width="280" height="560"
-                loading="lazy"
-                decoding="async"
-              >
-            </picture>
+    <div class="pricing-grid">
+      <!-- SOLO -->
+      <div class="pricing-card">
+        <div class="plan-name">Solo</div>
+        <div class="plan-price">
+          <div class="plan-dollar">$</div>
+          <div class="plan-amount">29</div>
+          <div class="plan-period">/month</div>
+        </div>
+        <div class="plan-desc">For 1-person operations ready to replace spreadsheets and WhatsApp.</div>
+        <ul class="plan-features">
+          <li>Scheduling & recurring bookings</li>
+          <li>Payment tracking</li>
+          <li>Client communication</li>
+          <li>Push notifications</li>
+          <li>1 employee (you)</li>
+        </ul>
+        <a href="#" class="plan-cta outline">Get Started Free</a>
+      </div>
+
+      <!-- CREW (HERO) -->
+      <div class="pricing-card hero">
+        <div class="plan-name">Crew</div>
+        <div class="plan-price">
+          <div class="plan-dollar" style="color:rgba(255,255,255,0.7)">$</div>
+          <div class="plan-amount">79</div>
+          <div class="plan-period">/month</div>
+        </div>
+        <div class="plan-desc">For 2–5 person teams. Everything you need to run a real business.</div>
+        <ul class="plan-features">
+          <li>Everything in Solo</li>
+          <li>Geofencing check-in & check-out</li>
+          <li>Time tracking & payroll data</li>
+          <li>Task checklists per job</li>
+          <li>Employee management (up to 5)</li>
+          <li>+$8/month per additional seat</li>
+        </ul>
+        <a href="#" class="plan-cta solid">Start Free Trial</a>
+        <span class="plan-seat">Includes 14-day free trial</span>
+      </div>
+
+      <!-- PRO -->
+      <div class="pricing-card">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">
+          <div class="plan-dollar">$</div>
+          <div class="plan-amount">129</div>
+          <div class="plan-period">/month</div>
+        </div>
+        <div class="plan-desc">For 5–10 person operations and businesses ready to scale.</div>
+        <ul class="plan-features">
+          <li>Everything in Crew</li>
+          <li>SMS inbox with AI categorization</li>
+          <li>Advanced reporting & analytics</li>
+          <li>Client web portal access</li>
+          <li>Up to 10 employees</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="plan-cta outline">Get Started Free</a>
+      </div>
+    </div>
+
+    <!-- VS Banner -->
+    <div class="vs-banner">
+      <div class="vs-item">
+        <div class="vs-label">Housemore (Crew)</div>
+        <div class="vs-price teal">$79/mo</div>
+      </div>
+      <div class="vs-divider">vs</div>
+      <div class="vs-item">
+        <div class="vs-label">Jobber</div>
+        <div class="vs-price">$109/mo</div>
+      </div>
+      <div class="vs-divider">vs</div>
+      <div class="vs-item">
+        <div class="vs-label">Housecall Pro</div>
+        <div class="vs-price">$149/mo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof">
+    <div class="section-header">
+      <span class="section-label">From the Field</span>
+      <h2>Household service owners are running tighter ships.</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-quote">"I used to spend Sunday evenings scheduling the whole next week over text. Now I
+          set it up in 20 minutes and Housemore handles the rest. My team actually shows up on time now."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#0D9488;">E</div>
+          <div>
+            <div class="author-name">Eviana C.</div>
+            <div class="author-role">House Cleaning Business, Owner</div>
           </div>
         </div>
-        <p class="how-phone-caption">Your whole team, one screen</p>
       </div>
-      <div class="time-saved-block">
-        <div class="time-figure">15<span class="time-unit">hrs</span></div>
-        <div class="time-label">saved every single week</div>
-        <div class="time-tasks">
-          <div class="time-task">No more scheduling back-and-forth</div>
-          <div class="time-task">No more manual time tracking</div>
-          <div class="time-task">No more payment follow-up chaos</div>
-          <div class="time-task">No more "did anyone show up?" calls</div>
-          <div class="time-task">No more end-of-week admin sessions</div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-quote">"The geofencing check-in alone paid for itself. No more arguing about hours — the
+          app just knows when they arrived and left. My crew respects the system because it's fair."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#14B8A6;">M</div>
+          <div>
+            <div class="author-name">Marcus T.</div>
+            <div class="author-role">Lawn Care & Landscaping, Owner</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-quote">"I tried Jobber and it felt like software designed for a plumbing company.
+          Housemore was made for cleaning businesses — you can tell. Worth every cent of the price difference."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#0F766E;">S</div>
+          <div>
+            <div class="author-name">Sandra R.</div>
+            <div class="author-role">Residential Cleaning Service, Owner</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="section-header">
-    <span class="section-label">Pricing</span>
-    <h2>Half the price of the big guys.<br>Built for your business.</h2>
-    <p>No setup fees, no contracts, no hidden charges. Start free, cancel anytime.</p>
-  </div>
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Stop running your business<br>from <em>your text messages.</em></h2>
+    <p>Join household service businesses replacing manual work with Housemore. Free 14-day trial, no credit card
+      required.</p>
+    <div class="cta-actions">
+      <a href="#pricing" class="btn-primary" style="font-size:16px; padding:18px 36px;">Start Your Free Trial →</a>
+      <a href="#features" class="btn-secondary"
+        style="font-size:16px; padding:18px 28px; border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">See
+        All Features</a>
+    </div>
+    <div class="cta-sub">14-day free trial · No credit card · Cancel anytime</div>
+  </section>
 
-  <div class="pricing-grid">
-    <!-- SOLO -->
-    <div class="pricing-card">
-      <div class="plan-name">Solo</div>
-      <div class="plan-price">
-        <div class="plan-dollar">$</div>
-        <div class="plan-amount">29</div>
-        <div class="plan-period">/month</div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none">
+            <defs>
+              <linearGradient id="footerGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#14B8A6" />
+                <stop offset="100%" stop-color="#0D9488" />
+              </linearGradient>
+            </defs>
+            <rect width="36" height="36" rx="8" fill="url(#footerGrad)" />
+            <!-- H left vertical -->
+            <rect x="10.5" y="14" width="3.5" height="13" rx="1.75" fill="white" />
+            <!-- H right vertical -->
+            <rect x="22" y="14" width="3.5" height="13" rx="1.75" fill="white" />
+            <!-- H crossbar -->
+            <rect x="10.5" y="19" width="15" height="3" rx="1.5" fill="white" />
+            <!-- Roof chevron -->
+            <polyline points="8.5,14 18,7.5 27.5,14" fill="none" stroke="white" stroke-width="2.8"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="nav-logo-text" style="color:white;">Housemore</span>
+        </a>
+        <p>The household services management app built for cleaning, lawn care, and handyman businesses with 1–10
+          employees.</p>
       </div>
-      <div class="plan-desc">For 1-person operations ready to replace spreadsheets and WhatsApp.</div>
-      <ul class="plan-features">
-        <li>Scheduling & recurring bookings</li>
-        <li>Payment tracking</li>
-        <li>Client communication</li>
-        <li>Push notifications</li>
-        <li>1 employee (you)</li>
-      </ul>
-      <a href="#" class="plan-cta outline">Get Started Free</a>
-    </div>
-
-    <!-- CREW (HERO) -->
-    <div class="pricing-card hero">
-      <div class="plan-name">Crew</div>
-      <div class="plan-price">
-        <div class="plan-dollar" style="color:rgba(255,255,255,0.7)">$</div>
-        <div class="plan-amount">79</div>
-        <div class="plan-period">/month</div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
       </div>
-      <div class="plan-desc">For 2–5 person teams. Everything you need to run a real business.</div>
-      <ul class="plan-features">
-        <li>Everything in Solo</li>
-        <li>Geofencing check-in & check-out</li>
-        <li>Time tracking & payroll data</li>
-        <li>Task checklists per job</li>
-        <li>Employee management (up to 5)</li>
-        <li>+$8/month per additional seat</li>
-      </ul>
-      <a href="#" class="plan-cta solid">Start Free Trial</a>
-      <span class="plan-seat">Includes 14-day free trial</span>
-    </div>
-
-    <!-- PRO -->
-    <div class="pricing-card">
-      <div class="plan-name">Pro</div>
-      <div class="plan-price">
-        <div class="plan-dollar">$</div>
-        <div class="plan-amount">129</div>
-        <div class="plan-period">/month</div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
       </div>
-      <div class="plan-desc">For 5–10 person operations and businesses ready to scale.</div>
-      <ul class="plan-features">
-        <li>Everything in Crew</li>
-        <li>SMS inbox with AI categorization</li>
-        <li>Advanced reporting & analytics</li>
-        <li>Client web portal access</li>
-        <li>Up to 10 employees</li>
-        <li>Priority support</li>
-      </ul>
-      <a href="#" class="plan-cta outline">Get Started Free</a>
-    </div>
-  </div>
-
-  <!-- VS Banner -->
-  <div class="vs-banner">
-    <div class="vs-item">
-      <div class="vs-label">Housemore (Crew)</div>
-      <div class="vs-price teal">$79/mo</div>
-    </div>
-    <div class="vs-divider">vs</div>
-    <div class="vs-item">
-      <div class="vs-label">Jobber</div>
-      <div class="vs-price">$109/mo</div>
-    </div>
-    <div class="vs-divider">vs</div>
-    <div class="vs-item">
-      <div class="vs-label">Housecall Pro</div>
-      <div class="vs-price">$149/mo</div>
-    </div>
-  </div>
-</section>
-
-<!-- SOCIAL PROOF -->
-<section class="social-proof">
-  <div class="section-header">
-    <span class="section-label">From the Field</span>
-    <h2>Household service owners are running tighter ships.</h2>
-  </div>
-
-  <div class="testimonial-grid">
-    <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-quote">"I used to spend Sunday evenings scheduling the whole next week over text. Now I set it up in 20 minutes and Housemore handles the rest. My team actually shows up on time now."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar" style="background:#0D9488;">E</div>
-        <div>
-          <div class="author-name">Eviana C.</div>
-          <div class="author-role">House Cleaning Business, Owner</div>
-        </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
       </div>
     </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Housemore. All rights reserved.</div>
+      <div class="footer-copy">Built for the people who keep homes beautiful.</div>
+    </div>
+  </footer>
 
-    <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-quote">"The geofencing check-in alone paid for itself. No more arguing about hours — the app just knows when they arrived and left. My crew respects the system because it's fair."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar" style="background:#14B8A6;">M</div>
-        <div>
-          <div class="author-name">Marcus T.</div>
-          <div class="author-role">Lawn Care & Landscaping, Owner</div>
-        </div>
-      </div>
-    </div>
+  <script>
+    // Subtle scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('animate-hidden');
+          entry.target.classList.add('animate-visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-    <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-quote">"I tried Jobber and it felt like software designed for a plumbing company. Housemore was made for cleaning businesses — you can tell. Worth every cent of the price difference."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar" style="background:#0F766E;">S</div>
-        <div>
-          <div class="author-name">Sandra R.</div>
-          <div class="author-role">Residential Cleaning Service, Owner</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <h2>Stop running your business<br>from <em>your text messages.</em></h2>
-  <p>Join household service businesses replacing manual work with Housemore. Free 14-day trial, no credit card required.</p>
-  <div class="cta-actions">
-    <a href="#pricing" class="btn-primary" style="font-size:16px; padding:18px 36px;">Start Your Free Trial →</a>
-    <a href="#features" class="btn-secondary" style="font-size:16px; padding:18px 28px; border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">See All Features</a>
-  </div>
-  <div class="cta-sub">14-day free trial · No credit card · Cancel anytime</div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="#" class="nav-logo">
-        <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none">
-          <defs>
-            <linearGradient id="footerGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#14B8A6"/>
-              <stop offset="100%" stop-color="#0D9488"/>
-            </linearGradient>
-          </defs>
-          <rect width="36" height="36" rx="8" fill="url(#footerGrad)"/>
-          <!-- H left vertical -->
-          <rect x="10.5" y="14" width="3.5" height="13" rx="1.75" fill="white"/>
-          <!-- H right vertical -->
-          <rect x="22" y="14" width="3.5" height="13" rx="1.75" fill="white"/>
-          <!-- H crossbar -->
-          <rect x="10.5" y="19" width="15" height="3" rx="1.5" fill="white"/>
-          <!-- Roof chevron -->
-          <polyline points="8.5,14 18,7.5 27.5,14" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="nav-logo-text" style="color:white;">Housemore</span>
-      </a>
-      <p>The household services management app built for cleaning, lawn care, and handyman businesses with 1–10 employees.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Product</div>
-      <ul class="footer-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#">Changelog</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Company</div>
-      <ul class="footer-links">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#">Press</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Legal</div>
-      <ul class="footer-links">
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Cookie Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Housemore. All rights reserved.</div>
-    <div class="footer-copy">Built for the people who keep homes beautiful.</div>
-  </div>
-</footer>
-
-<script>
-  // Subtle scroll-triggered fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('animate-hidden');
-        entry.target.classList.add('animate-visible');
-      }
+    document.querySelectorAll(
+      '.feature-card, .pain-card, .step, .testimonial-card, .pricing-card, .time-saved-block'
+    ).forEach(el => {
+      el.classList.add('animate-hidden');
+      observer.observe(el);
     });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll(
-    '.feature-card, .pain-card, .step, .testimonial-card, .pricing-card, .time-saved-block'
-  ).forEach(el => {
-    el.classList.add('animate-hidden');
-    observer.observe(el);
-  });
-
-  // Smooth nav background
-  window.addEventListener('scroll', () => {
-    requestAnimationFrame(() => {
-      const nav = document.querySelector('nav');
-      nav.style.boxShadow = window.scrollY > 20
-        ? '0 1px 20px rgba(0,0,0,0.06)'
-        : 'none';
+    // Smooth nav background
+    window.addEventListener('scroll', () => {
+      requestAnimationFrame(() => {
+        const nav = document.querySelector('nav');
+        nav.style.boxShadow = window.scrollY > 20
+          ? '0 1px 20px rgba(0,0,0,0.06)'
+          : 'none';
+      });
     });
-  });
-</script>
+  </script>
 </body>
+
 </html>
