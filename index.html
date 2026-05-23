@@ -129,7 +129,7 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 40px;
-      padding: 120px 6% 80px;
+      padding: 168px 6% 80px;
       position: relative;
       overflow: hidden;
     }
@@ -1272,6 +1272,62 @@
 </head>
 
 <body>
+
+  <!-- LAUNCH BANNER -->
+  <div id="launch-banner" style="
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 48px;
+    background: #0D9488;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 200;
+    padding: 0 48px;
+  ">
+    <span>🚀 Housemore is coming soon —</span>
+    <a href="https://tally.so/r/PdGlEe" target="_blank" style="
+      color: white;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      white-space: nowrap;
+    ">Join the waitlist</a>
+    <button onclick="
+      document.getElementById('launch-banner').style.display='none';
+      document.querySelector('nav').style.top='0';
+      localStorage.setItem('banner-dismissed','true');
+    " style="
+      position: absolute;
+      right: 16px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      opacity: 0.8;
+    ">×</button>
+  </div>
+  <script>
+    if (localStorage.getItem('banner-dismissed') === 'true') {
+      document.addEventListener('DOMContentLoaded', function() {
+        var banner = document.getElementById('launch-banner');
+        if (banner) banner.style.display = 'none';
+      });
+    } else {
+      document.addEventListener('DOMContentLoaded', function() {
+        var nav = document.querySelector('nav');
+        if (nav) nav.style.top = '48px';
+      });
+    }
+  </script>
 
   <!-- NAV -->
   <nav>
