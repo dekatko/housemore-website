@@ -910,75 +910,6 @@
       font-weight: 300;
     }
 
-    /* ─── TESTIMONIAL ─── */
-    .social-proof {
-      padding: 100px 6%;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-      margin-top: 60px;
-    }
-
-    .testimonial-card {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      transition: box-shadow 0.2s;
-    }
-
-    .testimonial-card:hover {
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-    }
-
-    .stars {
-      color: #F59E0B;
-      font-size: 14px;
-      letter-spacing: 1px;
-      margin-bottom: 14px;
-    }
-
-    .testimonial-quote {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .author-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 13px;
-      color: white;
-      flex-shrink: 0;
-    }
-
-    .author-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    .author-role {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
     /* ─── CTA ─── */
     .cta-section {
       padding: 100px 6%;
@@ -1222,9 +1153,7 @@
         box-shadow: none;
       }
 
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-      }
+
 
       .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -1717,55 +1646,6 @@
     </div>
   </section>
 
-  <!-- SOCIAL PROOF -->
-  <section class="social-proof">
-    <div class="section-header">
-      <span class="section-label">From the Field</span>
-      <h2>Household service owners are running tighter ships.</h2>
-    </div>
-
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-quote">"I used to spend Sunday evenings scheduling the whole next week over text. Now I
-          set it up in 20 minutes and Housemore handles the rest. My team actually shows up on time now."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#0D9488;">E</div>
-          <div>
-            <div class="author-name">Eviana C.</div>
-            <div class="author-role">House Cleaning Business, Owner</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-quote">"The geofencing check-in alone paid for itself. No more arguing about hours — the
-          app just knows when they arrived and left. My crew respects the system because it's fair."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#14B8A6;">M</div>
-          <div>
-            <div class="author-name">Marcus T.</div>
-            <div class="author-role">Lawn Care & Landscaping, Owner</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-quote">"I tried Jobber and it felt like software designed for a plumbing company.
-          Housemore was made for cleaning businesses — you can tell. Worth every cent of the price difference."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#0F766E;">S</div>
-          <div>
-            <div class="author-name">Sandra R.</div>
-            <div class="author-role">Residential Cleaning Service, Owner</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="cta-section">
     <h2>Stop running your business<br>from <em>your text messages.</em></h2>
@@ -1853,7 +1733,7 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll(
-      '.feature-card, .pain-card, .step, .testimonial-card, .pricing-card, .time-saved-block'
+      '.feature-card, .pain-card, .step, .pricing-card, .time-saved-block'
     ).forEach(el => {
       el.classList.add('animate-hidden');
       observer.observe(el);
