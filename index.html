@@ -6,6 +6,10 @@
 <title>Housemore — Run Your Cleaning Business, Not Paperwork</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" crossorigin
+  href="https://fonts.gstatic.com/s/fraunces/v31/6NUu8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnDSg.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+  href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkJxhTmf3ZGMZpg.woff2">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
 <noscript>
@@ -1148,6 +1152,16 @@
     .features-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   }
+
+  .animate-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
 </head>
 <body>
@@ -1651,27 +1665,27 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+        entry.target.classList.remove('animate-hidden');
+        entry.target.classList.add('animate-visible');
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.feature-card, .pain-card, .step, .testimonial-card, .pricing-card, .time-saved-block').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  document.querySelectorAll(
+    '.feature-card, .pain-card, .step, .testimonial-card, .pricing-card, .time-saved-block'
+  ).forEach(el => {
+    el.classList.add('animate-hidden');
     observer.observe(el);
   });
 
   // Smooth nav background
   window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 20) {
-      nav.style.boxShadow = '0 1px 20px rgba(0,0,0,0.06)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
+    requestAnimationFrame(() => {
+      const nav = document.querySelector('nav');
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 1px 20px rgba(0,0,0,0.06)'
+        : 'none';
+    });
   });
 </script>
 </body>
