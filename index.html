@@ -1206,6 +1206,42 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ─── LANGUAGE SWITCHER ─── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 5px;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .lang-btn.active {
+      color: var(--teal-dark);
+      background: var(--teal-muted);
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: var(--teal);
+    }
+
+    .lang-divider {
+      color: var(--border);
+      font-weight: 300;
+      user-select: none;
+      font-size: 13px;
+    }
   </style>
 </head>
 
@@ -1292,24 +1328,30 @@
       <span class="nav-logo-text">Housemore</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#" class="nav-cta">Start Free Trial</a></li>
+      <li><a href="#features" data-i18n="nav.features">Features</a></li>
+      <li><a href="#languages" data-i18n="nav.languages">In Portuguese</a></li>
+      <li><a href="#how" data-i18n="nav.how">How It Works</a></li>
+      <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn active" id="lang-en" onclick="setLang('en')">EN</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" id="lang-pt" onclick="setLang('pt')">PT</button>
+      </li>
+      <li><a href="#pricing" class="nav-cta" data-i18n="nav.cta">Start Free Trial</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">Built for Household Services</div>
-      <h1 class="hero-title">Run your business,<br><em>not paperwork</em></h1>
-      <p class="hero-subtitle">Housemore replaces the texts, spreadsheets, and sticky notes your household service business runs on. Scheduling, staff, and clients — in one app built exactly for you.</p>
+      <div class="hero-badge" data-i18n="hero.badge">Built for Household Services</div>
+      <h1 class="hero-title" data-i18n="hero.title">Run your business,<br><em>not paperwork</em></h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Housemore replaces the texts, spreadsheets, and sticky notes your household service business runs on. Scheduling, staff, and clients — in one app built exactly for you.</p>
       <div class="hero-actions">
-        <a href="#pricing" class="btn-primary">
+        <a href="#pricing" class="btn-primary" data-i18n="hero.cta1">
           Start Free Trial →
         </a>
-        <a href="#how" class="btn-secondary">
+        <a href="#how" class="btn-secondary" data-i18n="hero.cta2">
           See How It Works
         </a>
       </div>
@@ -1321,8 +1363,8 @@
           <div class="trust-avatar" style="background:#5EEAD4;color:#0F766E;">+</div>
         </div>
         <div class="trust-text">
-          <strong>Small teams love it.</strong><br>
-          Built for 1–10 person household service businesses
+          <strong data-i18n="hero.trust">Small teams love it.</strong><br>
+          <span data-i18n="hero.trust2">Built for 1–10 person household service businesses</span>
         </div>
       </div>
     </div>
@@ -1349,9 +1391,9 @@
   <!-- PROBLEM SECTION -->
   <section class="problem">
     <div>
-      <span class="section-label">The Reality</span>
-      <h2>Your business runs on<br><em>10–20 hours of admin</em><br>every single week.</h2>
-      <p class="problem-desc">You didn't start a household services business to spend your evenings texting
+      <span class="section-label" data-i18n="problem.label">The Reality</span>
+      <h2 data-i18n="problem.h2">Your business runs on<br><em>10–20 hours of admin</em><br>every single week.</h2>
+      <p class="problem-desc" data-i18n="problem.desc">You didn't start a household services business to spend your evenings texting
         schedules, chasing payments, and tracking who showed up where. But here you are.</p>
     </div>
     <div class="pain-grid">
@@ -1379,9 +1421,9 @@
   <!-- FEATURES -->
   <section class="features" id="features">
     <div class="section-header">
-      <span class="section-label">What You Get</span>
-      <h2>Everything your crew needs. Nothing you don't.</h2>
-      <p>Built specifically for household service businesses. No bloat, no enterprise complexity — just the tools that
+      <span class="section-label" data-i18n="features.label">What You Get</span>
+      <h2 data-i18n="features.h2">Everything your crew needs. Nothing you don't.</h2>
+      <p data-i18n="features.sub">Built specifically for household service businesses. No bloat, no enterprise complexity — just the tools that
         matter.</p>
     </div>
 
@@ -1652,16 +1694,16 @@
 
   <!-- CTA -->
   <section class="cta-section">
-    <h2>Stop running your business<br>from <em>your text messages.</em></h2>
-    <p>Join household service businesses replacing manual work with Housemore. Free 14-day trial, no credit card
+    <h2 data-i18n="cta.h2">Stop running your business<br>from <em>your text messages.</em></h2>
+    <p data-i18n="cta.sub">Join household service businesses replacing manual work with Housemore. Free 14-day trial, no credit card
       required.</p>
     <div class="cta-actions">
-      <a href="#pricing" class="btn-primary" style="font-size:16px; padding:18px 36px;">Start Your Free Trial →</a>
+      <a href="#pricing" class="btn-primary" data-i18n="cta.cta1" style="font-size:16px; padding:18px 36px;">Start Your Free Trial →</a>
       <a href="#features" class="btn-secondary"
         style="font-size:16px; padding:18px 28px; border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">See
         All Features</a>
     </div>
-    <div class="cta-sub">14-day free trial · No credit card · Cancel anytime</div>
+    <div class="cta-sub" data-i18n="cta.fine">14-day free trial · No credit card · Cancel anytime</div>
   </section>
 
   <!-- FOOTER -->
