@@ -872,49 +872,6 @@
       margin-top: 10px;
     }
 
-    /* ─── COMPARISON ─── */
-    .vs-banner {
-      margin-top: 50px;
-      background: var(--teal-muted);
-      border-radius: 16px;
-      padding: 28px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 60px;
-      max-width: 700px;
-      margin: 50px auto 0;
-    }
-
-    .vs-item {
-      text-align: center;
-    }
-
-    .vs-label {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-
-    .vs-price {
-      font-family: 'Fraunces', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--dark);
-      letter-spacing: -1px;
-    }
-
-    .vs-price.teal {
-      color: var(--teal-dark);
-    }
-
-    .vs-divider {
-      font-size: 22px;
-      color: var(--border);
-      font-weight: 300;
-    }
-
     /* ─── CTA ─── */
     .cta-section {
       padding: 100px 6%;
@@ -1168,10 +1125,6 @@
         display: none;
       }
 
-      .vs-banner {
-        flex-direction: column;
-        gap: 20px;
-      }
     }
 
     @media (max-width: 768px) {
@@ -1832,7 +1785,7 @@
   <section class="pricing" id="pricing">
     <div class="section-header">
       <span class="section-label" data-i18n="pricing.label">Pricing</span>
-      <h2 data-i18n="pricing.h2">Half the price of the big guys.<br>Built for your business.</h2>
+      <h2 data-i18n="pricing.h2">Simple pricing.<br>Built for your business.</h2>
       <p data-i18n="pricing.sub">No setup fees, no contracts, no hidden charges. Start free, cancel anytime.</p>
     </div>
 
@@ -1895,24 +1848,6 @@
           <li data-i18n="pro.feat6">Priority support</li>
         </ul>
         <a href="#" class="plan-cta outline" data-i18n="pro.cta">Get Started Free</a>
-      </div>
-    </div>
-
-    <!-- VS Banner -->
-    <div class="vs-banner">
-      <div class="vs-item">
-        <div class="vs-label">Housemore (Crew)</div>
-        <div class="vs-price teal">$79/mo</div>
-      </div>
-      <div class="vs-divider">vs</div>
-      <div class="vs-item">
-        <div class="vs-label">Jobber</div>
-        <div class="vs-price">$109/mo</div>
-      </div>
-      <div class="vs-divider">vs</div>
-      <div class="vs-item">
-        <div class="vs-label">Housecall Pro</div>
-        <div class="vs-price">$149/mo</div>
       </div>
     </div>
   </section>
