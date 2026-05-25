@@ -1658,10 +1658,10 @@
 
       <div>
         <div class="multilingual-flag-row">
-          <span class="flag-pill active">🇧🇷 Português</span>
-          <span class="flag-pill">🇪🇸 Español</span>
-          <span class="flag-pill">🇷🇺 Русский</span>
-          <span class="flag-pill">🇺🇸 English</span>
+          <span class="flag-pill" id="flag-pt">🇧🇷 Português</span>
+          <span class="flag-pill" id="flag-es">🇪🇸 Español</span>
+          <span class="flag-pill" id="flag-ru">🇷🇺 Русский</span>
+          <span class="flag-pill" id="flag-en">🇺🇸 English</span>
         </div>
         <h2 data-i18n="lang.title">Your team speaks Portuguese, Spanish, or Russian?<br>So does Housemore.</h2>
         <p class="multilingual-desc" data-i18n="lang.desc">The entire app is available in Portuguese (Brazil),
@@ -2463,6 +2463,8 @@
     ['en', 'pt', 'es', 'ru'].forEach(l => {
       const btn = document.getElementById('lang-' + l);
       if (btn) btn.classList.toggle('active', l === lang);
+      const pill = document.getElementById('flag-' + l);
+      if (pill) pill.classList.toggle('active', l === lang);
     });
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
