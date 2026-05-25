@@ -1798,6 +1798,207 @@
       });
     });
   </script>
+
+  <script>
+  // ─── TRANSLATIONS ─────────────────────────────────────────────────
+  const translations = {
+    en: {
+      "nav.features":   "Features",
+      "nav.languages":  "Languages",
+      "nav.how":        "How It Works",
+      "nav.pricing":    "Pricing",
+      "nav.cta":        "Start Free Trial",
+
+      "hero.badge":     "Built for Household Services",
+      "hero.title":     "Run your business,<br><em>not paperwork</em>",
+      "hero.subtitle":  "Housemore replaces the texts, spreadsheets, and sticky notes your household service business runs on. Scheduling, staff, and clients — in one app built exactly for you.",
+      "hero.cta1":      "Start Free Trial →",
+      "hero.cta2":      "See How It Works",
+      "hero.trust":     "Small teams love it.",
+      "hero.trust2":    "Built for 1–10 person household service businesses",
+
+      "problem.label":  "The Reality",
+      "problem.h2":     "Your business runs on<br><em>10–20 hours of admin</em><br>every single week.",
+      "problem.desc":   "You didn't start a household services business to spend your evenings texting schedules, chasing payments, and tracking who showed up where. But here you are.",
+
+      "features.label": "What You Get",
+      "features.h2":    "Everything your crew needs. Nothing you don't.",
+      "features.sub":   "Built specifically for household service businesses. No bloat, no enterprise complexity — just the tools that matter.",
+
+      "cta.h2":         "Stop running your business<br>from <em>your text messages.</em>",
+      "cta.sub":        "Join household service businesses replacing manual work with Housemore. Free 14-day trial, no credit card required.",
+      "cta.cta1":       "Start Your Free Trial →",
+      "cta.fine":       "14-day free trial · No credit card · Cancel anytime",
+
+      "lang.title":     "Your team speaks Portuguese, Spanish, or Russian?<br>So does Housemore.",
+      "lang.desc":      "The entire app is available in Portuguese (Brazil), Spanish, and Russian. Every team member works in their own language — scheduling, tasks, check-ins, and notifications all switch automatically.",
+      "lang.feat1":     "Full app in Portuguese, Spanish & Russian",
+      "lang.feat2":     "Push notifications in each employee's language",
+      "lang.feat3":     "Task checklists per employee language",
+      "lang.feat4":     "Switch anytime from the employee profile",
+
+      "demo.booking":   "Reserva confirmada / Reserva confirmada / Бронирование подтверждено",
+      "demo.checkin":   "Faça check-in ao chegar / Regístrate al llegar / Отметьтесь при прибытии",
+      "demo.task":      "Tarefa concluída / Tarea completada / Задача выполнена",
+      "demo.client":    "Cliente: Johnson / Cliente: Johnson / Клиент: Johnson",
+      "demo.payment":   "Pagamento recebido / Pago recibido / Оплата получена",
+      "demo.shift":     "Seu turno começa em 1h / Tu turno empieza en 1h / Смена через 1ч",
+    },
+    pt: {
+      "nav.features":   "Funcionalidades",
+      "nav.languages":  "Idiomas",
+      "nav.how":        "Como Funciona",
+      "nav.pricing":    "Preços",
+      "nav.cta":        "Começar Grátis",
+
+      "hero.badge":     "Feito para Serviços Domésticos",
+      "hero.title":     "Gerencie seu negócio,<br><em>não a burocracia</em>",
+      "hero.subtitle":  "O Housemore substitui as mensagens, planilhas e post-its nos quais o seu negócio de serviços domésticos depende. Agendamentos, equipe e clientes — em um único app feito para você.",
+      "hero.cta1":      "Começar Grátis →",
+      "hero.cta2":      "Ver Como Funciona",
+      "hero.trust":     "Equipes pequenas adoram.",
+      "hero.trust2":    "Feito para negócios de 1 a 10 pessoas",
+
+      "problem.label":  "A Realidade",
+      "problem.h2":     "Seu negócio consome<br><em>10 a 20 horas de admin</em><br>por semana.",
+      "problem.desc":   "Você não abriu um negócio de serviços domésticos para passar as tardes enviando mensagens de agenda, cobrando pagamentos e rastreando quem apareceu onde. Mas é isso que acontece.",
+
+      "features.label": "O Que Você Recebe",
+      "features.h2":    "Tudo o que sua equipe precisa. Nada além disso.",
+      "features.sub":   "Desenvolvido especificamente para negócios de serviços domésticos. Sem complexidade desnecessária — só o que importa.",
+
+      "cta.h2":         "Pare de gerenciar seu negócio<br><em>pelas mensagens.</em>",
+      "cta.sub":        "Junte-se a negócios de serviços domésticos que substituíram o trabalho manual pelo Housemore. 14 dias grátis, sem cartão de crédito.",
+      "cta.cta1":       "Começar Período Gratuito →",
+      "cta.fine":       "14 dias grátis · Sem cartão · Cancele quando quiser",
+
+      "lang.title":     "Sua equipe fala português?<br>O Housemore também.",
+      "lang.desc":      "Todo o app — agendamentos, listas de tarefas, check-ins e notificações — está completamente disponível em Português do Brasil. Sem gambiarras, sem prints traduzidos. A coisa real.",
+      "lang.feat1":     "App completo em Português (Brasil)",
+      "lang.feat2":     "Notificações push no idioma certo",
+      "lang.feat3":     "Checklists de tarefas por funcionário",
+      "lang.feat4":     "Troque o idioma a qualquer momento",
+
+      "demo.booking":   "Reserva confirmada",
+      "demo.checkin":   "Faça check-in ao chegar",
+      "demo.task":      "Tarefa concluída",
+      "demo.client":    "Cliente: Johnson",
+      "demo.payment":   "Pagamento recebido",
+      "demo.shift":     "Seu turno começa em 1h",
+    },
+    es: {
+      "nav.features":   "Funcionalidades",
+      "nav.languages":  "Idiomas",
+      "nav.how":        "Cómo Funciona",
+      "nav.pricing":    "Precios",
+      "nav.cta":        "Empezar Gratis",
+
+      "hero.badge":     "Para Servicios del Hogar",
+      "hero.title":     "Gestiona tu negocio,<br><em>no el papeleo</em>",
+      "hero.subtitle":  "Housemore reemplaza los mensajes, hojas de cálculo y notas adhesivas en los que depende tu negocio de servicios del hogar. Agenda, personal y clientes — en una sola app hecha para ti.",
+      "hero.cta1":      "Empezar Gratis →",
+      "hero.cta2":      "Ver Cómo Funciona",
+      "hero.trust":     "Los equipos pequeños lo adoran.",
+      "hero.trust2":    "Para negocios de 1 a 10 personas",
+
+      "problem.label":  "La Realidad",
+      "problem.h2":     "Tu negocio consume<br><em>10 a 20 horas de admin</em><br>cada semana.",
+      "problem.desc":   "No empezaste un negocio de servicios del hogar para pasar las tardes enviando horarios, cobrando pagos y rastreando quién apareció dónde. Pero así es.",
+
+      "features.label": "Lo Que Obtienes",
+      "features.h2":    "Todo lo que necesita tu equipo. Nada más.",
+      "features.sub":   "Desarrollado específicamente para negocios de servicios del hogar. Sin complejidad innecesaria — solo lo que importa.",
+
+      "cta.h2":         "Deja de gestionar tu negocio<br><em>desde los mensajes.</em>",
+      "cta.sub":        "Únete a negocios de servicios del hogar que reemplazaron el trabajo manual con Housemore. 14 días gratis, sin tarjeta de crédito.",
+      "cta.cta1":       "Comenzar Período Gratuito →",
+      "cta.fine":       "14 días gratis · Sin tarjeta · Cancela cuando quieras",
+
+      "lang.title":     "¿Tu equipo habla español?<br>Housemore también.",
+      "lang.desc":      "Toda la app — agenda, listas de tareas, check-ins y notificaciones — está completamente disponible en español. Sin parches ni capturas traducidas. Lo real.",
+      "lang.feat1":     "App completa en español",
+      "lang.feat2":     "Notificaciones push en el idioma correcto",
+      "lang.feat3":     "Checklists de tareas por empleado",
+      "lang.feat4":     "Cambia el idioma en cualquier momento",
+
+      "demo.booking":   "Reserva confirmada",
+      "demo.checkin":   "Regístrate al llegar",
+      "demo.task":      "Tarea completada",
+      "demo.client":    "Cliente: Johnson",
+      "demo.payment":   "Pago recibido",
+      "demo.shift":     "Tu turno empieza en 1h",
+    },
+    ru: {
+      "nav.features":   "Функции",
+      "nav.languages":  "Языки",
+      "nav.how":        "Как Это Работает",
+      "nav.pricing":    "Цены",
+      "nav.cta":        "Начать Бесплатно",
+
+      "hero.badge":     "Для Домашних Услуг",
+      "hero.title":     "Управляйте бизнесом,<br><em>не бумагами</em>",
+      "hero.subtitle":  "Housemore заменяет сообщения, таблицы и стикеры, на которых держится ваш бизнес домашних услуг. Расписание, персонал и клиенты — в одном приложении, созданном специально для вас.",
+      "hero.cta1":      "Начать Бесплатно →",
+      "hero.cta2":      "Как Это Работает",
+      "hero.trust":     "Малые команды обожают.",
+      "hero.trust2":    "Для команд от 1 до 10 человек",
+
+      "problem.label":  "Реальность",
+      "problem.h2":     "Ваш бизнес тратит<br><em>10–20 часов в неделю</em><br>на администрирование.",
+      "problem.desc":   "Вы открывали бизнес домашних услуг не для того, чтобы каждый вечер рассылать расписания, отслеживать оплаты и выяснять, кто куда приехал. Но всё именно так.",
+
+      "features.label": "Что Вы Получаете",
+      "features.h2":    "Всё что нужно команде. Ничего лишнего.",
+      "features.sub":   "Разработано специально для бизнесов домашних услуг. Без лишней сложности — только то, что важно.",
+
+      "cta.h2":         "Перестаньте управлять бизнесом<br><em>через мессенджеры.</em>",
+      "cta.sub":        "Присоединяйтесь к бизнесам, которые заменили ручной труд на Housemore. 14 дней бесплатно, без карты.",
+      "cta.cta1":       "Начать Бесплатный Период →",
+      "cta.fine":       "14 дней бесплатно · Без карты · Отмена в любой момент",
+
+      "lang.title":     "Ваша команда говорит по-русски?<br>Housemore тоже.",
+      "lang.desc":      "Всё приложение — расписания, списки задач, отметки о прибытии и уведомления — полностью доступно на русском языке. Без костылей, без скриншотов с переводом. Настоящая локализация.",
+      "lang.feat1":     "Полное приложение на русском",
+      "lang.feat2":     "Push-уведомления на нужном языке",
+      "lang.feat3":     "Чеклисты задач по языку сотрудника",
+      "lang.feat4":     "Смените язык в профиле в любой момент",
+
+      "demo.booking":   "Бронирование подтверждено",
+      "demo.checkin":   "Отметьтесь при прибытии",
+      "demo.task":      "Задача выполнена",
+      "demo.client":    "Клиент: Johnson",
+      "demo.payment":   "Оплата получена",
+      "demo.shift":     "Ваша смена через 1ч",
+    }
+  };
+
+  let currentLang = localStorage.getItem('housemore-lang') || 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('housemore-lang', lang);
+    const langMap = { en: 'en', pt: 'pt-BR', es: 'es', ru: 'ru' };
+    document.documentElement.lang = langMap[lang] || 'en';
+
+    ['en', 'pt', 'es', 'ru'].forEach(l => {
+      const btn = document.getElementById('lang-' + l);
+      if (btn) btn.classList.toggle('active', l === lang);
+    });
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const str = translations[lang]?.[key];
+      if (!str) return;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = str;
+      } else {
+        el.innerHTML = str;
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+  </script>
 </body>
 
 </html>
