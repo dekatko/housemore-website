@@ -293,7 +293,79 @@
   @media (max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
   }
+
+  /* ─── HAMBURGER / MOBILE MENU ─── */
+  .nav-hamburger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--dark);
+    border-radius: 8px;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .nav-hamburger:hover { background: var(--bg-soft); }
+  .nav-hamburger .icon-close { display: none; }
+  .nav-hamburger[aria-expanded="true"] .icon-bars { display: none; }
+  .nav-hamburger[aria-expanded="true"] .icon-close { display: block; }
+
+  #nav-mobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #nav-mobile.open { max-height: 560px; }
+  @media (prefers-reduced-motion: reduce) {
+    #nav-mobile { transition: none; }
+  }
+
+  .nav-mobile-list {
+    list-style: none;
+    padding: 0 0 16px;
+  }
+  .nav-mobile-list > li { border-top: 1px solid var(--border); }
+  .nav-mobile-list a {
+    display: flex;
+    align-items: center;
+    padding: 0 6%;
+    min-height: 52px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--mid);
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-mobile-list a:hover { color: var(--teal); background: var(--teal-faint); }
+  .nav-mobile-list .nav-mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 14px 6% 4px;
+    min-height: 48px;
+    border-radius: 8px;
+    background: var(--teal);
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .nav-mobile-list .nav-mobile-cta:hover { background: var(--teal-dark) !important; }
+
+  body.menu-open { overflow: hidden; }
 
   @media (max-width: 600px) {
     .footer-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -324,8 +396,33 @@
     <li><a href="index.html#features">Features</a></li>
     <li><a href="index.html#how">How It Works</a></li>
     <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="index.html#pricing" class="nav-cta">Start Free Trial</a></li>
+    <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="nav-cta">Join the Waitlist</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger"
+          aria-label="Open menu" aria-expanded="false"
+          aria-controls="nav-mobile"
+          onclick="toggleMobileMenu()">
+    <svg class="icon-bars" width="24" height="24" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+    <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <div id="nav-mobile">
+    <ul class="nav-mobile-list">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener"
+             class="nav-mobile-cta">Join the Waitlist</a></li>
+    </ul>
+  </div>
 </nav>
 
 <main>
@@ -439,6 +536,23 @@
     } else {
       nav.style.boxShadow = 'none';
     }
+  });
+
+  function toggleMobileMenu(force) {
+    const btn  = document.getElementById('nav-hamburger');
+    const menu = document.getElementById('nav-mobile');
+    if (!btn || !menu) return;
+    const willOpen = force !== undefined ? !!force : !menu.classList.contains('open');
+    menu.classList.toggle('open', willOpen);
+    btn.setAttribute('aria-expanded', String(willOpen));
+    btn.setAttribute('aria-label', willOpen ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', willOpen);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') toggleMobileMenu(false);
+    });
   });
 </script>
 </body>
