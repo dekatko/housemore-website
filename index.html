@@ -747,17 +747,14 @@
       padding: 28px 24px;
       position: relative;
       transition: box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
 
     .pricing-card.hero {
       background: var(--dark);
       border-color: transparent;
       box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
-      min-height: 0;
-      display: block;
-      grid-template-columns: unset;
-      align-items: unset;
-      gap: unset;
       padding: 28px 24px;
       overflow: visible;
     }
@@ -874,6 +871,10 @@
       margin-top: 1px;
     }
 
+    .plan-footer {
+      margin-top: auto;
+    }
+
     .plan-cta {
       display: block;
       text-align: center;
@@ -911,6 +912,7 @@
       font-size: 11px;
       color: rgba(255, 255, 255, 0.35);
       margin-top: 10px;
+      min-height: 14px;
     }
 
     /* ─── CTA ─── */
@@ -1953,7 +1955,10 @@
           <li data-i18n="solo.feat4">Client communication</li>
           <li data-i18n="solo.feat5">1 team member (you)</li>
         </ul>
-        <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta outline" data-i18n="solo.cta">Get Early Access</a>
+        <div class="plan-footer">
+          <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta outline" data-i18n="solo.cta">Get Early Access</a>
+          <span class="plan-seat" aria-hidden="true"></span>
+        </div>
       </div>
 
       <!-- CREW (HERO) -->
@@ -1973,8 +1978,10 @@
           <li data-i18n="crew.feat5">Household-specific task checklists</li>
           <li data-i18n="crew.feat6">Up to 5 team members (+$8/mo per additional seat)</li>
         </ul>
-        <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta solid" data-i18n="crew.cta">Join the Waitlist</a>
-        <span class="plan-seat" data-i18n="crew.trial">Founding members get extended free access</span>
+        <div class="plan-footer">
+          <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta solid" data-i18n="crew.cta">Join the Waitlist</a>
+          <span class="plan-seat" data-i18n="crew.trial">Founding members get extended free access</span>
+        </div>
       </div>
 
       <!-- PRO -->
@@ -1994,7 +2001,10 @@
           <li data-i18n="pro.feat5">Up to 10 team members</li>
           <li data-i18n="pro.feat6">Priority support</li>
         </ul>
-        <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta outline" data-i18n="pro.cta">Get Early Access</a>
+        <div class="plan-footer">
+          <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta outline" data-i18n="pro.cta">Get Early Access</a>
+          <span class="plan-seat" aria-hidden="true"></span>
+        </div>
       </div>
     </div>
   </section>
