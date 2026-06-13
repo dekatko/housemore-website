@@ -1446,7 +1446,7 @@
       <span class="nav-logo-text">Housemore</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#household-profiles">Household Profiles</a></li>
+      <li><a href="#household-profiles" data-i18n="nav.profiles">Household Profiles</a></li>
       <li><a href="#household-profiles" data-i18n="nav.features">Features</a></li>
       <li><a href="#how" data-i18n="nav.how">How It Works</a></li>
       <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
@@ -1938,6 +1938,7 @@
   // ─── TRANSLATIONS ─────────────────────────────────────────────────
   const translations = {
     en: {
+      "nav.profiles":   "Household Profiles",
       "nav.features":   "Features",
       "nav.how":        "How It Works",
       "nav.pricing":    "Pricing",
@@ -2060,16 +2061,17 @@
       "pro.cta":       "Get Early Access",
     },
     pt: {
+      "nav.profiles":   "Perfis de Residência",
       "nav.features":   "Funcionalidades",
       "nav.how":        "Como Funciona",
       "nav.pricing":    "Preços",
-      "nav.cta":        "Começar Grátis",
+      "nav.cta":        "Entrar na Lista de Espera",
 
       "hero.badge":     "A Plataforma de Relacionamento Domiciliar",
       "hero.title":     "Conheça cada lar.<br><em>Entregue sempre.</em>",
       "hero.subtitle":  "O Housemore dá a cada lar do cliente um perfil vivo — preferências, anotações, histórico de visitas e contexto de passagem de equipe — para que cada membro chegue preparado e nenhum relacionamento seja perdido.",
-      "hero.cta1":      "Começar Grátis →",
-      "hero.cta2":      "Ver Perfis de Domicílio",
+      "hero.cta1":      "Entrar na Lista de Espera →",
+      "hero.cta2":      "Ver Perfis de Residência",
       "hero.trust":     "Empresas de serviços domésticos adoram.",
       "hero.trust2":    "Feito para equipes de limpeza, governança e concierge",
 
@@ -2083,8 +2085,8 @@
 
       "cta.h2":         "Pare de perder clientes<br>quando sua <em>equipe muda.</em>",
       "cta.sub":        "O Housemore constrói conhecimento institucional sobre cada domicílio que sua equipe atende — para que cada visita seja preparada, cada passagem seja fluida e nenhum relacionamento seja perdido.",
-      "cta.cta1":       "Começar Período Gratuito →",
-      "cta.fine":       "14 dias grátis · Sem cartão · Cancele quando quiser",
+      "cta.cta1":       "Entrar na Lista de Espera →",
+      "cta.fine":       "Grátis para entrar · Seja o primeiro no lançamento · Sem spam",
 
       "lang.title":     "Sua equipe trabalha no próprio idioma.<br>As notas de domicílio sincronizam em todos eles.",
       "lang.desc":      "Todo o app — agendamentos, listas de tarefas, check-ins e notificações — está completamente disponível em Português do Brasil. Sem gambiarras, sem prints traduzidos. A coisa real.",
@@ -2109,7 +2111,7 @@
       "pain3.desc":   "Sua equipe vê um trabalho na Rua Principal na quinta-feira. Ninguém vê o que aconteceu na última visita, o que foi sinalizado ou o que aquele lar precisa.",
 
       // Feature cards
-      "feat1.title":  "Perfis de Domicílio",
+      "feat1.title":  "Perfis de Residência",
       "feat1.desc":   "Cada lar do cliente recebe um perfil vivo — preferências, anotações de acesso, histórico de serviços e contexto de equipe. Um registro compartilhado por toda a equipe, que cresce a cada visita.",
       "feat2.title":  "Notas Pós-Visita",
       "feat2.desc":   "Após cada visita, registre o que aconteceu, o que foi sinalizado e o que lembrar. O próximo membro da equipe lê antes de entrar.",
@@ -2124,9 +2126,9 @@
 
       // Screenshots
       "screenshots.h2":       "Veja em ação",
-      "screenshots.sub":      "Tudo que seu negócio precisa, na palma da sua mão.",
-      "screenshot1.caption":  "Visualize o mês inteiro de uma vez",
-      "screenshot2.caption":  "Cada reserva, cada status, sempre atualizado",
+      "screenshots.sub":      "O perfil de residência é o registro. Cada visita o constrói.",
+      "screenshot1.caption":  "Cada residência, cada visita, sempre em contexto",
+      "screenshot2.caption":  "Notas pós-visita que toda a equipe pode ver",
 
       // How It Works
       "how.label":    "Como Funciona",
@@ -2151,16 +2153,16 @@
 
       // Pricing
       "pricing.label": "Preços",
-      "pricing.h2":    "Preços simples.<br>Perfis de Domicílio em todos os planos.",
-      "pricing.sub":   "Sem taxas de configuração, sem contratos, sem cobranças ocultas. Comece grátis, cancele quando quiser.",
+      "pricing.h2":    "Preços simples.<br>Perfis de Residência em todos os planos.",
+      "pricing.sub":   "Sem taxas de configuração, sem contratos, sem cobranças ocultas. Garanta o preço de lançamento entrando na lista de espera.",
       "solo.name":     "Solo",
       "solo.desc":     "Para operações de 1 pessoa. Adicione seus domicílios, construa seus registros de relacionamento e entregue cada visita com contexto completo.",
-      "solo.feat1":    "Perfis de Domicílio &amp; notas pós-visita",
+      "solo.feat1":    "Perfis de Residência &amp; notas pós-visita",
       "solo.feat2":    "Agendamento inteligente &amp; visitas recorrentes",
       "solo.feat3":    "Controle de pagamentos",
       "solo.feat4":    "Comunicação com clientes",
       "solo.feat5":    "1 membro da equipe (você)",
-      "solo.cta":      "Começar Grátis",
+      "solo.cta":      "Acesso Antecipado",
       "crew.name":     "Crew",
       "crew.desc":     "Para equipes de 2 a 5 pessoas. Perfis de domicílio compartilhados garantem que cada membro chegue preparado — independente de quem está cobrindo.",
       "crew.feat1":    "Tudo do Solo",
@@ -2169,8 +2171,8 @@
       "crew.feat4":    "Controle de tempo &amp; dados de folha de pagamento",
       "crew.feat5":    "Checklists de tarefas específicas do domicílio",
       "crew.feat6":    "Até 5 membros (+$8/mês por assento adicional)",
-      "crew.cta":      "Iniciar Período Gratuito",
-      "crew.trial":    "Inclui 14 dias de teste grátis",
+      "crew.cta":      "Entrar na Lista de Espera",
+      "crew.trial":    "Membros fundadores têm acesso gratuito estendido",
       "pro.name":      "Pro",
       "pro.desc":      "Para operações em crescimento. A plataforma completa de relacionamento domiciliar com análises avançadas, acesso ao portal do cliente e suporte prioritário.",
       "pro.feat1":     "Tudo do Crew",
@@ -2179,19 +2181,20 @@
       "pro.feat4":     "Caixa de entrada SMS com categorização por IA",
       "pro.feat5":     "Até 10 membros da equipe",
       "pro.feat6":     "Suporte prioritário",
-      "pro.cta":       "Começar Grátis",
+      "pro.cta":       "Acesso Antecipado",
     },
     es: {
+      "nav.profiles":   "Perfiles del Hogar",
       "nav.features":   "Funcionalidades",
       "nav.how":        "Cómo Funciona",
       "nav.pricing":    "Precios",
-      "nav.cta":        "Empezar Gratis",
+      "nav.cta":        "Unirse a la Lista de Espera",
 
       "hero.badge":     "La Plataforma de Relaciones del Hogar",
       "hero.title":     "Conoce cada hogar.<br><em>Entrega siempre.</em>",
       "hero.subtitle":  "Housemore le da a cada hogar de cliente su propio perfil vivo — preferencias, notas, historial de visitas y contexto de cambio de equipo — para que cada miembro llegue preparado y ninguna relación se pierda.",
-      "hero.cta1":      "Empezar Gratis →",
-      "hero.cta2":      "Ver Perfiles de Hogar",
+      "hero.cta1":      "Unirse a la Lista de Espera →",
+      "hero.cta2":      "Ver Perfiles del Hogar",
       "hero.trust":     "Las empresas de servicios del hogar lo adoran.",
       "hero.trust2":    "Para equipos de limpieza, gobierno del hogar y conserjes",
 
@@ -2205,8 +2208,8 @@
 
       "cta.h2":         "Deja de perder clientes<br>cuando tu <em>equipo cambia.</em>",
       "cta.sub":        "Housemore construye conocimiento institucional sobre cada hogar que atiende tu equipo — para que cada visita esté preparada, cada cambio sea fluido y ninguna relación se pierda.",
-      "cta.cta1":       "Comenzar Período Gratuito →",
-      "cta.fine":       "14 días gratis · Sin tarjeta · Cancela cuando quieras",
+      "cta.cta1":       "Unirse a la Lista de Espera →",
+      "cta.fine":       "Gratis unirte · Sé el primero al lanzamiento · Sin spam",
 
       "lang.title":     "Tu equipo trabaja en su idioma.<br>Las notas del hogar se sincronizan en todos ellos.",
       "lang.desc":      "Toda la app — agenda, listas de tareas, check-ins y notificaciones — está completamente disponible en español. Sin parches ni capturas traducidas. Lo real.",
@@ -2231,7 +2234,7 @@
       "pain3.desc":   "Tu equipo ve un trabajo en la Calle Principal el jueves. Nadie ve qué pasó en la última visita, qué se señaló o qué necesita ese hogar.",
 
       // Feature cards
-      "feat1.title":  "Perfiles de Hogar",
+      "feat1.title":  "Perfiles del Hogar",
       "feat1.desc":   "Cada hogar recibe un perfil vivo — preferencias, notas de acceso, historial de servicios y contexto de equipo. Un registro compartido por todo el equipo que crece con cada visita.",
       "feat2.title":  "Notas Post-Visita",
       "feat2.desc":   "Tras cada visita, registra qué pasó, qué se señaló y qué recordar. El siguiente miembro lo lee antes de entrar.",
@@ -2246,9 +2249,9 @@
 
       // Screenshots
       "screenshots.h2":       "Vélo en acción",
-      "screenshots.sub":      "Todo lo que tu negocio necesita, en la palma de tu mano.",
-      "screenshot1.caption":  "Visualiza todo el mes de un vistazo",
-      "screenshot2.caption":  "Cada reserva, cada estado, siempre actualizado",
+      "screenshots.sub":      "El perfil del hogar es el registro. Cada visita lo construye.",
+      "screenshot1.caption":  "Cada hogar, cada visita, siempre en contexto",
+      "screenshot2.caption":  "Notas post-visita que todo el equipo puede ver",
 
       // How It Works
       "how.label":    "Cómo Funciona",
@@ -2273,16 +2276,16 @@
 
       // Pricing
       "pricing.label": "Precios",
-      "pricing.h2":    "Precios simples.<br>Perfiles de Hogar en todos los planes.",
-      "pricing.sub":   "Sin tarifas de configuración, sin contratos, sin cargos ocultos. Empieza gratis, cancela cuando quieras.",
+      "pricing.h2":    "Precios simples.<br>Perfiles del Hogar en todos los planes.",
+      "pricing.sub":   "Sin tarifas de configuración, sin contratos, sin cargos ocultos. Asegura el precio de lanzamiento uniéndote a la lista de espera.",
       "solo.name":     "Solo",
       "solo.desc":     "Para operaciones de 1 persona. Agrega tus hogares, construye tus registros de relación y entrega cada visita con contexto completo.",
-      "solo.feat1":    "Perfiles de Hogar &amp; notas post-visita",
+      "solo.feat1":    "Perfiles del Hogar &amp; notas post-visita",
       "solo.feat2":    "Agenda inteligente &amp; visitas recurrentes",
       "solo.feat3":    "Control de pagos",
       "solo.feat4":    "Comunicación con clientes",
       "solo.feat5":    "1 miembro del equipo (tú)",
-      "solo.cta":      "Empezar Gratis",
+      "solo.cta":      "Acceso Anticipado",
       "crew.name":     "Crew",
       "crew.desc":     "Para equipos de 2 a 5 personas. Los perfiles de hogar compartidos hacen que cada miembro llegue preparado — sin importar quién cubra.",
       "crew.feat1":    "Todo en Solo",
@@ -2291,8 +2294,8 @@
       "crew.feat4":    "Control de tiempo &amp; datos de nómina",
       "crew.feat5":    "Checklists de tareas específicas del hogar",
       "crew.feat6":    "Hasta 5 miembros (+$8/mes por puesto adicional)",
-      "crew.cta":      "Iniciar Período Gratuito",
-      "crew.trial":    "Incluye 14 días de prueba gratis",
+      "crew.cta":      "Unirse a la Lista de Espera",
+      "crew.trial":    "Los miembros fundadores obtienen acceso gratuito extendido",
       "pro.name":      "Pro",
       "pro.desc":      "Para operaciones en crecimiento. La plataforma completa de relaciones del hogar con análisis avanzados, acceso al portal del cliente y soporte prioritario.",
       "pro.feat1":     "Todo en Crew",
@@ -2301,18 +2304,19 @@
       "pro.feat4":     "Bandeja de entrada SMS con categorización IA",
       "pro.feat5":     "Hasta 10 miembros del equipo",
       "pro.feat6":     "Soporte prioritario",
-      "pro.cta":       "Empezar Gratis",
+      "pro.cta":       "Acceso Anticipado",
     },
     ru: {
+      "nav.profiles":   "Профили домов",
       "nav.features":   "Функции",
       "nav.how":        "Как Это Работает",
       "nav.pricing":    "Цены",
-      "nav.cta":        "Начать Бесплатно",
+      "nav.cta":        "Записаться в список ожидания",
 
       "hero.badge":     "Платформа для управления отношениями с домохозяйствами",
       "hero.title":     "Знайте каждый дом.<br><em>Выполняйте каждый раз.</em>",
       "hero.subtitle":  "Housemore даёт каждому дому клиента живой профиль — предпочтения, заметки, историю визитов и контекст передачи команды — чтобы каждый сотрудник приходил подготовленным, а ни одно отношение не терялось.",
-      "hero.cta1":      "Начать Бесплатно →",
+      "hero.cta1":      "Записаться в список ожидания →",
       "hero.cta2":      "Смотреть Профили Домов",
       "hero.trust":     "Бизнесы домашних услуг обожают.",
       "hero.trust2":    "Для команд уборки, обслуживания и консьерж-бизнеса",
@@ -2327,8 +2331,8 @@
 
       "cta.h2":         "Перестаньте терять клиентов<br>когда <em>меняется команда.</em>",
       "cta.sub":        "Housemore строит институциональные знания о каждом доме, который обслуживает ваша команда — чтобы каждый визит был подготовлен, каждая передача прошла без потерь и ни одно отношение не было утеряно.",
-      "cta.cta1":       "Начать Бесплатный Период →",
-      "cta.fine":       "14 дней бесплатно · Без карты · Отмена в любой момент",
+      "cta.cta1":       "Записаться в список ожидания →",
+      "cta.fine":       "Бесплатно · Будьте первыми при запуске · Без спама",
 
       "lang.title":     "Ваша команда работает на своём языке.<br>Заметки о домах синхронизируются во всех.",
       "lang.desc":      "Всё приложение — расписания, списки задач, отметки о прибытии и уведомления — полностью доступно на русском языке. Без костылей, без скриншотов с переводом. Настоящая локализация.",
@@ -2368,9 +2372,9 @@
 
       // Screenshots
       "screenshots.h2":       "Смотрите в действии",
-      "screenshots.sub":      "Всё, что нужно бизнесу, в вашем кармане.",
-      "screenshot1.caption":  "Весь месяц — одним взглядом",
-      "screenshot2.caption":  "Каждое бронирование, каждый статус — всегда актуально",
+      "screenshots.sub":      "Профиль дома — это запись. Каждый визит дополняет её.",
+      "screenshot1.caption":  "Каждый дом, каждый визит — всегда в контексте",
+      "screenshot2.caption":  "Заметки после визита, видимые всей команде",
 
       // How It Works
       "how.label":    "Как Это Работает",
@@ -2396,7 +2400,7 @@
       // Pricing
       "pricing.label": "Цены",
       "pricing.h2":    "Простые цены.<br>Профили домов в каждом тарифе.",
-      "pricing.sub":   "Без платы за настройку, контрактов и скрытых платежей. Начните бесплатно, отмените в любой момент.",
+      "pricing.sub":   "Без платы за настройку, контрактов и скрытых платежей. Зафиксируйте стартовую цену, записавшись в список ожидания.",
       "solo.name":     "Solo",
       "solo.desc":     "Для операций из 1 человека. Добавляйте дома, создавайте записи отношений и доставляйте каждый визит с полным контекстом.",
       "solo.feat1":    "Профили домов &amp; заметки после визита",
@@ -2404,7 +2408,7 @@
       "solo.feat3":    "Отслеживание платежей",
       "solo.feat4":    "Связь с клиентами",
       "solo.feat5":    "1 член команды (вы)",
-      "solo.cta":      "Начать Бесплатно",
+      "solo.cta":      "Ранний доступ",
       "crew.name":     "Crew",
       "crew.desc":     "Для команд из 2–5 человек. Общие профили домов гарантируют, что каждый сотрудник приходит подготовленным — кто бы ни выполнял заказ.",
       "crew.feat1":    "Всё из Solo",
@@ -2413,8 +2417,8 @@
       "crew.feat4":    "Учёт времени &amp; данные для зарплаты",
       "crew.feat5":    "Чеклисты задач для каждого дома",
       "crew.feat6":    "До 5 членов команды (+$8/мес за каждое доп. место)",
-      "crew.cta":      "Начать Бесплатный Период",
-      "crew.trial":    "Включает 14-дневный пробный период",
+      "crew.cta":      "Записаться в список ожидания",
+      "crew.trial":    "Основатели получают расширенный бесплатный доступ",
       "pro.name":      "Pro",
       "pro.desc":      "Для растущих операций. Полная платформа отношений с домохозяйствами с расширенной аналитикой, доступом к порталу клиента и приоритетной поддержкой.",
       "pro.feat1":     "Всё из Crew",
@@ -2423,7 +2427,7 @@
       "pro.feat4":     "SMS-ящик с AI-категоризацией",
       "pro.feat5":     "До 10 членов команды",
       "pro.feat6":     "Приоритетная поддержка",
-      "pro.cta":       "Начать Бесплатно",
+      "pro.cta":       "Ранний доступ",
     }
   };
 
