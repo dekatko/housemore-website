@@ -38,7 +38,9 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
 
   body {
     font-family: 'DM Sans', sans-serif;
@@ -258,7 +260,7 @@
 
   .footer-brand p {
     font-size: 14px;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.6);
     line-height: 1.7;
     margin-top: 14px;
     max-width: 240px;
@@ -269,7 +271,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.65);
     margin-bottom: 16px;
   }
 
@@ -283,7 +285,7 @@
   .footer-links a {
     text-decoration: none;
     font-size: 14px;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.7);
     transition: color 0.2s;
   }
 
@@ -301,7 +303,7 @@
 
   .footer-copy {
     font-size: 13px;
-    color: rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.6);
   }
 
   @media (max-width: 900px) {
@@ -385,9 +387,44 @@
     .footer-grid { grid-template-columns: 1fr; gap: 36px; }
     main { padding-top: 100px; }
   }
+
+  /* ─── FOCUS VISIBILITY ─── */
+  :focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+  }
+
+  /* ─── SKIP LINK ─── */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 9999;
+    background: var(--teal);
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .skip-link:focus {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav>
   <a href="index.html" class="nav-logo">
@@ -441,7 +478,7 @@
   </div>
 </nav>
 
-<main>
+<main id="main">
   <p class="contact-eyebrow">Company</p>
   <h1 class="contact-title">Contact us</h1>
   <p class="contact-lead">

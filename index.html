@@ -110,8 +110,8 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
     }
 
     body {
@@ -989,7 +989,7 @@
 
     .footer-brand p {
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.6);
       line-height: 1.7;
       margin-top: 14px;
       max-width: 240px;
@@ -1000,7 +1000,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.65);
       margin-bottom: 16px;
     }
 
@@ -1014,7 +1014,7 @@
     .footer-links a {
       text-decoration: none;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.7);
       transition: color 0.2s;
     }
 
@@ -1032,7 +1032,7 @@
 
     .footer-copy {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     /* ─── SCREENSHOTS ─── */
@@ -1190,15 +1190,17 @@
       }
     }
 
-    .animate-hidden {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+    @media (prefers-reduced-motion: no-preference) {
+      .animate-hidden {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
 
-    .animate-visible {
-      opacity: 1;
-      transform: translateY(0);
+      .animate-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ─── LANGUAGE SWITCHER ─── */
@@ -1483,13 +1485,48 @@
         gap: 48px;
       }
     }
+
+    /* ─── FOCUS VISIBILITY ─── */
+    :focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+
+    /* ─── SKIP LINK ─── */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 9999;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 0 0 8px 8px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .skip-link:focus {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      width: auto;
+      height: auto;
+      overflow: visible;
+    }
   </style>
 </head>
 
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- LAUNCH BANNER -->
-  <div id="launch-banner" style="
+  <div id="launch-banner" role="region" aria-label="Announcement" style="
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 48px;
@@ -1505,7 +1542,7 @@
     z-index: 200;
     padding: 0 48px;
   ">
-    <span>🚀 Housemore is coming soon —</span>
+    <span><span aria-hidden="true">🚀</span> Housemore is coming soon —</span>
     <a href="https://tally.so/r/PdGlEe" target="_blank" style="
       color: white;
       font-weight: 700;
@@ -1513,7 +1550,7 @@
       text-underline-offset: 3px;
       white-space: nowrap;
     ">Join the waitlist</a>
-    <button onclick="
+    <button aria-label="Dismiss announcement" onclick="
       document.getElementById('launch-banner').style.display='none';
       document.querySelector('nav').style.top='0';
       localStorage.setItem('banner-dismissed','true');
@@ -1528,7 +1565,7 @@
       line-height: 1;
       padding: 4px 8px;
       opacity: 0.8;
-    ">×</button>
+    "><span aria-hidden="true">×</span></button>
   </div>
   <script>
     if (localStorage.getItem('banner-dismissed') === 'true') {
@@ -1574,13 +1611,13 @@
       <li><a href="#how" data-i18n="nav.how">How It Works</a></li>
       <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
       <li class="lang-switcher">
-        <button class="lang-btn active" id="lang-en" data-lang="en" onclick="setLang('en')">EN</button>
-        <span class="lang-divider">|</span>
-        <button class="lang-btn" id="lang-pt" data-lang="pt" onclick="setLang('pt')">PT</button>
-        <span class="lang-divider">|</span>
-        <button class="lang-btn" id="lang-es" data-lang="es" onclick="setLang('es')">ES</button>
-        <span class="lang-divider">|</span>
-        <button class="lang-btn" id="lang-ru" data-lang="ru" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true" aria-label="Switch to English" onclick="setLang('en')">EN</button>
+        <span class="lang-divider" aria-hidden="true">|</span>
+        <button class="lang-btn" id="lang-pt" data-lang="pt" aria-pressed="false" aria-label="Switch to Portuguese" onclick="setLang('pt')">PT</button>
+        <span class="lang-divider" aria-hidden="true">|</span>
+        <button class="lang-btn" id="lang-es" data-lang="es" aria-pressed="false" aria-label="Switch to Spanish" onclick="setLang('es')">ES</button>
+        <span class="lang-divider" aria-hidden="true">|</span>
+        <button class="lang-btn" id="lang-ru" data-lang="ru" aria-pressed="false" aria-label="Switch to Russian" onclick="setLang('ru')">RU</button>
       </li>
       <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.cta">Join the Waitlist</a></li>
     </ul>
@@ -1608,13 +1645,13 @@
         <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
         <li>
           <div class="nav-mobile-lang">
-            <button class="lang-btn" id="m-lang-en" data-lang="en" onclick="setLang('en')">EN</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" id="m-lang-pt" data-lang="pt" onclick="setLang('pt')">PT</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" id="m-lang-es" data-lang="es" onclick="setLang('es')">ES</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" id="m-lang-ru" data-lang="ru" onclick="setLang('ru')">RU</button>
+            <button class="lang-btn" id="m-lang-en" data-lang="en" aria-pressed="false" aria-label="Switch to English" onclick="setLang('en')">EN</button>
+            <span class="lang-divider" aria-hidden="true">|</span>
+            <button class="lang-btn" id="m-lang-pt" data-lang="pt" aria-pressed="false" aria-label="Switch to Portuguese" onclick="setLang('pt')">PT</button>
+            <span class="lang-divider" aria-hidden="true">|</span>
+            <button class="lang-btn" id="m-lang-es" data-lang="es" aria-pressed="false" aria-label="Switch to Spanish" onclick="setLang('es')">ES</button>
+            <span class="lang-divider" aria-hidden="true">|</span>
+            <button class="lang-btn" id="m-lang-ru" data-lang="ru" aria-pressed="false" aria-label="Switch to Russian" onclick="setLang('ru')">RU</button>
           </div>
         </li>
         <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener"
@@ -1624,7 +1661,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="main">
     <div class="hero-content">
       <div class="hero-badge" data-i18n="hero.badge">The Household Relationship Platform</div>
       <h1 class="hero-title" data-i18n="hero.title">Know every household.<br><em>Deliver every time.</em></h1>
@@ -1682,17 +1719,17 @@
     </div>
     <div class="pain-grid">
       <div class="pain-card">
-        <div class="pain-icon">🔄</div>
+        <div class="pain-icon" aria-hidden="true">🔄</div>
         <div class="pain-title" data-i18n="pain1.title">Team Handoff Blindness</div>
         <div class="pain-desc" data-i18n="pain1.desc">When a different team member covers a job, they arrive knowing nothing about that household. The client re-explains everything. Again.</div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">🧠</div>
+        <div class="pain-icon" aria-hidden="true">🧠</div>
         <div class="pain-title" data-i18n="pain2.title">Knowledge That Walks Out the Door</div>
         <div class="pain-desc" data-i18n="pain2.desc">Every preference and relationship detail lives in one person's head. When they leave, you start over with that client from scratch.</div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">📋</div>
+        <div class="pain-icon" aria-hidden="true">📋</div>
         <div class="pain-title" data-i18n="pain3.title">Bookings Without Context</div>
         <div class="pain-desc" data-i18n="pain3.desc">Your team sees a job at 123 Main St on Thursday. Nobody sees what happened last visit, what was flagged, or what that household needs.</div>
       </div>
@@ -1709,25 +1746,25 @@
 
     <div class="features-grid">
       <div class="feature-card featured">
-        <div class="feature-icon-wrap">🏠</div>
+        <div class="feature-icon-wrap" aria-hidden="true">🏠</div>
         <div class="feature-title" data-i18n="feat1.title">Household Profiles</div>
         <div class="feature-desc" data-i18n="feat1.desc">Every client home gets a living profile — preferences, access notes, service history, and team context. One record, shared by your whole team, that grows with every visit.</div>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap">📝</div>
+        <div class="feature-icon-wrap" aria-hidden="true">📝</div>
         <div class="feature-title" data-i18n="feat2.title">Post-Visit Notes</div>
         <div class="feature-desc" data-i18n="feat2.desc">After every visit, capture what happened, what was flagged, and what to remember. The next team member reads it before they walk in the door.</div>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap">🔄</div>
+        <div class="feature-icon-wrap" aria-hidden="true">🔄</div>
         <div class="feature-title" data-i18n="feat3.title">Team Handoff Intelligence</div>
         <div class="feature-desc" data-i18n="feat3.desc">When coverage changes, context doesn't get lost. Every household preference and history travels with the job — not the person who used to do it.</div>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="overflow:hidden; padding:0;">
+        <div class="feature-icon-wrap" style="overflow:hidden; padding:0;" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="calendar_heatmap-icon-104w.webp">
             <img src="calendar_heatmap.PNG" alt=""
@@ -1740,13 +1777,13 @@
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap">📍</div>
+        <div class="feature-icon-wrap" aria-hidden="true">📍</div>
         <div class="feature-title" data-i18n="feat5.title">Check-In & Task Checklists</div>
         <div class="feature-desc" data-i18n="feat5.desc">Staff check in on arrival via geofence, work through household-specific task lists, and check out — all tied to that household's permanent record.</div>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap">💰</div>
+        <div class="feature-icon-wrap" aria-hidden="true">💰</div>
         <div class="feature-title" data-i18n="feat6.title">Payment Tracking</div>
         <div class="feature-desc" data-i18n="feat6.desc">Log payments, track outstanding balances, and see revenue at a glance. Always know exactly where your money stands.</div>
       </div>
@@ -1852,7 +1889,7 @@
           <p class="how-phone-caption" data-i18n="howphone.caption">Every household, everything your team needs to know.</p>
         </div>
         <div class="time-saved-block">
-          <div class="time-figure">0<span class="time-unit"></span></div>
+          <div class="time-figure">0</div>
           <div class="time-label" data-i18n="time.label">client relationships lost to team handoffs</div>
           <div class="time-tasks">
             <div class="time-task" data-i18n="time.task1">No household context lost when staff changes</div>
@@ -1943,10 +1980,10 @@
 
       <div>
         <div class="multilingual-flag-row">
-          <span class="flag-pill" id="flag-pt">🇧🇷 Português</span>
-          <span class="flag-pill" id="flag-es">🇪🇸 Español</span>
-          <span class="flag-pill" id="flag-ru">🇷🇺 Русский</span>
-          <span class="flag-pill" id="flag-en">🇺🇸 English</span>
+          <span class="flag-pill" id="flag-pt"><span aria-hidden="true">🇧🇷</span> Português</span>
+          <span class="flag-pill" id="flag-es"><span aria-hidden="true">🇪🇸</span> Español</span>
+          <span class="flag-pill" id="flag-ru"><span aria-hidden="true">🇷🇺</span> Русский</span>
+          <span class="flag-pill" id="flag-en"><span aria-hidden="true">🇺🇸</span> English</span>
         </div>
         <h2 data-i18n="lang.title">Your team works in their language.<br>Household notes sync across all of them.</h2>
         <p class="multilingual-desc" data-i18n="lang.desc">The entire app is available in Portuguese (Brazil),
@@ -2079,12 +2116,14 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll(
-      '.feature-card, .pain-card, .step, .pricing-card, .time-saved-block'
-    ).forEach(el => {
-      el.classList.add('animate-hidden');
-      observer.observe(el);
-    });
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll(
+        '.feature-card, .pain-card, .step, .pricing-card, .time-saved-block'
+      ).forEach(el => {
+        el.classList.add('animate-hidden');
+        observer.observe(el);
+      });
+    }
 
     // Smooth nav background
     window.addEventListener('scroll', () => {
@@ -2605,7 +2644,9 @@
     // Toggle active on every .lang-btn that carries a data-lang attribute
     // (covers both desktop and mobile switcher buttons)
     document.querySelectorAll('.lang-btn[data-lang]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
+      const isActive = btn.dataset.lang === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
     });
 
     ['en', 'pt', 'es', 'ru'].forEach(l => {
