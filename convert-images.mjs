@@ -9,7 +9,6 @@ const phoneScreens = [
 
 const icons = [
   'calendar_heatmap',
-  'booking_details',
 ];
 
 async function run() {

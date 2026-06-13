@@ -1526,35 +1526,32 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- LAUNCH BANNER -->
-  <div id="launch-banner" role="region" aria-label="Announcement" style="
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 48px;
-    background: #0D9488;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 200;
-    padding: 0 48px;
-  ">
-    <span><span aria-hidden="true">🚀</span> Housemore is coming soon —</span>
-    <a href="https://tally.so/r/PdGlEe" target="_blank" style="
+  <style>
+    #launch-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      min-height: 48px;
+      height: auto;
+      background: #0D9488;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 200;
+      padding: 0 48px;
+    }
+    #launch-banner a {
       color: white;
       font-weight: 700;
       text-decoration: underline;
       text-underline-offset: 3px;
       white-space: nowrap;
-    ">Join the waitlist</a>
-    <button aria-label="Dismiss announcement" onclick="
-      document.getElementById('launch-banner').style.display='none';
-      document.querySelector('nav').style.top='0';
-      localStorage.setItem('banner-dismissed','true');
-    " style="
+    }
+    #launch-banner .banner-dismiss {
       position: absolute;
       right: 16px;
       background: none;
@@ -1565,19 +1562,47 @@
       line-height: 1;
       padding: 4px 8px;
       opacity: 0.8;
-    "><span aria-hidden="true">×</span></button>
+    }
+    @media (max-width: 480px) {
+      #launch-banner {
+        min-height: 48px;
+        height: auto;
+        padding: 8px 44px 8px 12px;
+        font-size: 13px;
+      }
+    }
+  </style>
+  <div id="launch-banner" role="region" aria-label="Announcement">
+    <span><span aria-hidden="true">🚀</span> <span data-i18n="banner.text">Housemore is coming soon —</span></span>
+    <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" data-i18n="banner.cta">Join the waitlist</a>
+    <button class="banner-dismiss" aria-label="Dismiss announcement" onclick="dismissBanner()"><span aria-hidden="true">×</span></button>
   </div>
   <script>
+    function syncNavTop() {
+      var banner = document.getElementById('launch-banner');
+      var nav = document.querySelector('nav');
+      if (!banner || !nav) return;
+      if (banner.style.display === 'none') {
+        nav.style.top = '0';
+      } else {
+        nav.style.top = banner.offsetHeight + 'px';
+      }
+    }
+    function dismissBanner() {
+      var banner = document.getElementById('launch-banner');
+      if (banner) banner.style.display = 'none';
+      syncNavTop();
+      localStorage.setItem('banner-dismissed', 'true');
+    }
     if (localStorage.getItem('banner-dismissed') === 'true') {
       document.addEventListener('DOMContentLoaded', function() {
         var banner = document.getElementById('launch-banner');
         if (banner) banner.style.display = 'none';
+        syncNavTop();
       });
     } else {
-      document.addEventListener('DOMContentLoaded', function() {
-        var nav = document.querySelector('nav');
-        if (nav) nav.style.top = '48px';
-      });
+      document.addEventListener('DOMContentLoaded', syncNavTop);
+      window.addEventListener('resize', syncNavTop);
     }
   </script>
 
@@ -2140,6 +2165,9 @@
   // ─── TRANSLATIONS ─────────────────────────────────────────────────
   const translations = {
     en: {
+      "banner.text":    "Housemore is coming soon —",
+      "banner.cta":     "Join the waitlist",
+
       "nav.profiles":   "Household Profiles",
       "nav.features":   "Features",
       "nav.how":        "How It Works",
@@ -2263,6 +2291,9 @@
       "pro.cta":       "Get Early Access",
     },
     pt: {
+      "banner.text":    "O Housemore chega em breve —",
+      "banner.cta":     "Entrar na lista de espera",
+
       "nav.profiles":   "Perfis de Residência",
       "nav.features":   "Funcionalidades",
       "nav.how":        "Como Funciona",
@@ -2386,6 +2417,9 @@
       "pro.cta":       "Acesso Antecipado",
     },
     es: {
+      "banner.text":    "Housemore llega pronto —",
+      "banner.cta":     "Únete a la lista de espera",
+
       "nav.profiles":   "Perfiles del Hogar",
       "nav.features":   "Funcionalidades",
       "nav.how":        "Cómo Funciona",
@@ -2509,6 +2543,9 @@
       "pro.cta":       "Acceso Anticipado",
     },
     ru: {
+      "banner.text":    "Housemore скоро запускается —",
+      "banner.cta":     "Присоединиться к списку ожидания",
+
       "nav.profiles":   "Профили домов",
       "nav.features":   "Функции",
       "nav.how":        "Как Это Работает",
