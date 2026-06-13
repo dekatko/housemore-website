@@ -328,26 +328,9 @@
       animation: fadeUp 0.6s ease 0.4s both;
     }
 
-    .trust-avatars {
-      display: flex;
-    }
-
-    .trust-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 2px solid white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: white;
-      margin-left: -8px;
-    }
-
-    .trust-avatar:first-child {
-      margin-left: 0;
+    .trust-icon {
+      flex-shrink: 0;
+      color: var(--teal);
     }
 
     .trust-text {
@@ -1655,15 +1638,18 @@
         </a>
       </div>
       <div class="hero-trust">
-        <div class="trust-avatars">
-          <div class="trust-avatar" style="background:#0D9488;">E</div>
-          <div class="trust-avatar" style="background:#14B8A6;">C</div>
-          <div class="trust-avatar" style="background:#0F766E;">M</div>
-          <div class="trust-avatar" style="background:#5EEAD4;color:#0F766E;">+</div>
-        </div>
+        <svg class="trust-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+             aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 2L3 5v5c0 4.418 3.03 8.55 7 9.93C14.97 18.55 17 14.418 17 10V5l-7-3z"
+                fill="currentColor" opacity="0.15"/>
+          <path d="M10 2L3 5v5c0 4.418 3.03 8.55 7 9.93C14.97 18.55 17 14.418 17 10V5l-7-3z"
+                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <polyline points="7,10 9.5,12.5 13.5,8" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
         <div class="trust-text">
-          <strong data-i18n="hero.trust">Household service businesses love it.</strong><br>
-          <span data-i18n="hero.trust2">Built for cleaning, housekeeping, and concierge teams</span>
+          <strong data-i18n="hero.trust">In beta with a 10-person cleaning company in Boston</strong><br>
+          <span data-i18n="hero.trust2">Built hands-on with the teams who'll use it every day</span>
         </div>
       </div>
     </div>
@@ -2126,8 +2112,8 @@
       "hero.subtitle":  "Housemore gives every client home its own living profile — preferences, notes, visit history, and team handoff context — so every team member walks in prepared, so you keep the clients you've earned.",
       "hero.cta1":      "Join the Waitlist →",
       "hero.cta2":      "See Household Profiles",
-      "hero.trust":     "Household service businesses love it.",
-      "hero.trust2":    "Built for cleaning, housekeeping, and concierge teams",
+      "hero.trust":     "In beta with a 10-person cleaning company in Boston",
+      "hero.trust2":    "Built hands-on with the teams who'll use it every day",
 
       "problem.label":  "The Real Problem",
       "problem.h2":     "You're not losing clients<br><em>because of bad work.</em><br>You're losing them to bad handoffs.",
@@ -2249,8 +2235,8 @@
       "hero.subtitle":  "O Housemore dá a cada lar do cliente um perfil vivo — preferências, anotações, histórico de visitas e contexto de passagem de equipe — para que cada membro chegue preparado e você mantenha os clientes que conquistou.",
       "hero.cta1":      "Entrar na Lista de Espera →",
       "hero.cta2":      "Ver Perfis de Residência",
-      "hero.trust":     "Empresas de serviços domésticos adoram.",
-      "hero.trust2":    "Feito para equipes de limpeza, governança e concierge",
+      "hero.trust":     "Em beta com uma empresa de limpeza de 10 pessoas em Boston",
+      "hero.trust2":    "Desenvolvido lado a lado com as equipes que vão usá-lo todo dia",
 
       "problem.label":  "O Problema Real",
       "problem.h2":     "Você não perde clientes<br><em>por trabalho ruim.</em><br>Você os perde por passagens ruins.",
@@ -2372,8 +2358,8 @@
       "hero.subtitle":  "Housemore le da a cada hogar de cliente su propio perfil vivo — preferencias, notas, historial de visitas y contexto de cambio de equipo — para que cada miembro llegue preparado y conserves los clientes que te has ganado.",
       "hero.cta1":      "Unirse a la Lista de Espera →",
       "hero.cta2":      "Ver Perfiles del Hogar",
-      "hero.trust":     "Las empresas de servicios del hogar lo adoran.",
-      "hero.trust2":    "Para equipos de limpieza, gobierno del hogar y conserjes",
+      "hero.trust":     "En beta con una empresa de limpieza de 10 personas en Boston",
+      "hero.trust2":    "Desarrollado junto a los equipos que lo usarán cada día",
 
       "problem.label":  "El Problema Real",
       "problem.h2":     "No pierdes clientes<br><em>por trabajo malo.</em><br>Los pierdes por cambios mal gestionados.",
@@ -2495,8 +2481,8 @@
       "hero.subtitle":  "Housemore даёт каждому дому клиента живой профиль — предпочтения, заметки, историю визитов и контекст передачи команды — чтобы каждый сотрудник приходил подготовленным, а вы сохраняли клиентов, которых заработали.",
       "hero.cta1":      "Записаться в список ожидания →",
       "hero.cta2":      "Смотреть Профили Домов",
-      "hero.trust":     "Бизнесы домашних услуг обожают.",
-      "hero.trust2":    "Для команд уборки, обслуживания и консьерж-бизнеса",
+      "hero.trust":     "В бета-тестировании с клининговой компанией из 10 человек в Бостоне",
+      "hero.trust2":    "Создаётся вместе с командами, которые будут использовать его каждый день",
 
       "problem.label":  "Настоящая Проблема",
       "problem.h2":     "Вы теряете клиентов не из-за<br><em>плохой работы.</em><br>Вы теряете их из-за плохих передач.",
