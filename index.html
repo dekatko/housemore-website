@@ -1593,11 +1593,10 @@
       var banner = document.getElementById('launch-banner');
       var nav = document.querySelector('nav');
       if (!banner || !nav) return;
-      if (banner.style.display === 'none') {
-        nav.style.top = '0';
-      } else {
-        nav.style.top = banner.offsetHeight + 'px';
-      }
+      // Read before write to avoid forced reflow
+      var hidden = banner.style.display === 'none';
+      var h = hidden ? 0 : banner.offsetHeight;
+      nav.style.top = h + 'px';
     }
     function dismissBanner() {
       var banner = document.getElementById('launch-banner');
