@@ -1358,8 +1358,13 @@
       align-items: center;
     }
 
+    .multilingual-inner > div {
+      min-width: 0;
+    }
+
     .multilingual-flag-row {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       align-items: center;
       margin-bottom: 20px;
@@ -1494,6 +1499,18 @@
       .multilingual-inner {
         grid-template-columns: 1fr;
         gap: 48px;
+      }
+
+      .multilingual {
+        padding: 60px 6%;
+      }
+
+      .multilingual-card {
+        padding: 24px;
+      }
+
+      .lang-demo-translated {
+        word-break: break-word;
       }
     }
 
