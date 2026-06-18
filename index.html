@@ -123,7 +123,7 @@ overflow-x: hidden;
 
 nav {
 position: fixed;
-top: 0;
+top: 48px;
 left: 0;
 right: 0;
 z-index: 100;
@@ -1623,10 +1623,10 @@ overflow: visible;
       document.addEventListener('DOMContentLoaded', function() {
         var banner = document.getElementById('launch-banner');
         if (banner) banner.style.display = 'none';
-        syncNavTop();
+        requestAnimationFrame(syncNavTop);
       });
     } else {
-      document.addEventListener('DOMContentLoaded', syncNavTop);
+      document.addEventListener('DOMContentLoaded', function() { requestAnimationFrame(syncNavTop); });
       window.addEventListener('resize', function() { requestAnimationFrame(syncNavTop); });
     }
   </script>
