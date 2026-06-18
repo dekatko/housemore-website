@@ -1,0 +1,18 @@
+# Housemore
+
+> Housemore is a household relationship platform for home service professionals. It helps cleaners, housekeepers, and home care teams build detailed household profiles so every visit is delivered with full context — no matter who's on the job.
+
+Housemore is currently in pre-launch. Interested users can join the waitlist.
+
+## Pages
+
+- [Home](https://www.housemore.app/): Marketing homepage with product overview, features, pricing, and waitlist signup.
+- [Contact](https://www.housemore.app/contact.html): Contact form for questions, partnership inquiries, and support.
+
+## Product
+
+Housemore gives home service businesses a shared record for every household they serve: notes on pets, entry codes, client preferences, task checklists, and team assignments. It replaces scattered notes and tribal knowledge with a structured, searchable system accessible to the whole team.
+
+## Waitlist
+
+Early access signups: https://tally.so/r/PdGlEe
