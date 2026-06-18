@@ -1627,7 +1627,7 @@ overflow: visible;
       });
     } else {
       document.addEventListener('DOMContentLoaded', syncNavTop);
-      window.addEventListener('resize', syncNavTop);
+      window.addEventListener('resize', function() { requestAnimationFrame(syncNavTop); });
     }
   </script>
 
