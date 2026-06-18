@@ -1604,30 +1604,29 @@ overflow: visible;
     <button class="banner-dismiss" aria-label="Dismiss announcement" onclick="dismissBanner()"><span aria-hidden="true">×</span></button>
   </div>
   <script>
-    function syncNavTop() {
-      var banner = document.getElementById('launch-banner');
-      var nav = document.querySelector('nav');
-      if (!banner || !nav) return;
-      // Read before write to avoid forced reflow
-      var hidden = banner.style.display === 'none';
-      var h = hidden ? 0 : banner.offsetHeight;
-      nav.style.top = h + 'px';
-    }
     function dismissBanner() {
       var banner = document.getElementById('launch-banner');
+      var nav = document.querySelector('nav');
       if (banner) banner.style.display = 'none';
-      syncNavTop();
+      if (nav) nav.style.top = '0';
       localStorage.setItem('banner-dismissed', 'true');
     }
     if (localStorage.getItem('banner-dismissed') === 'true') {
       document.addEventListener('DOMContentLoaded', function() {
         var banner = document.getElementById('launch-banner');
+        var nav = document.querySelector('nav');
         if (banner) banner.style.display = 'none';
-        requestAnimationFrame(syncNavTop);
+        if (nav) nav.style.top = '0';
       });
     } else {
-      document.addEventListener('DOMContentLoaded', function() { requestAnimationFrame(syncNavTop); });
-      window.addEventListener('resize', function() { requestAnimationFrame(syncNavTop); });
+      document.addEventListener('DOMContentLoaded', function() {
+        var banner = document.getElementById('launch-banner');
+        var nav = document.querySelector('nav');
+        if (!banner || !nav) return;
+        new ResizeObserver(function(entries) {
+          nav.style.top = entries[0].contentRect.height + 'px';
+        }).observe(banner);
+      });
     }
   </script>
 
