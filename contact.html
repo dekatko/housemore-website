@@ -448,7 +448,7 @@
     <li><a href="index.html#household-profiles">Features</a></li>
     <li><a href="index.html#how">How It Works</a></li>
     <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="nav-cta">Join the Waitlist</a></li>
+    <li><a href="#" target="_blank" rel="noopener" class="nav-cta" data-cta="demo">Book a Demo</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger"
           aria-label="Open menu" aria-expanded="false"
@@ -472,8 +472,8 @@
       <li><a href="index.html#household-profiles">Features</a></li>
       <li><a href="index.html#how">How It Works</a></li>
       <li><a href="index.html#pricing">Pricing</a></li>
-      <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener"
-             class="nav-mobile-cta">Join the Waitlist</a></li>
+      <li><a href="#" target="_blank" rel="noopener"
+             class="nav-mobile-cta" data-cta="demo">Book a Demo</a></li>
     </ul>
   </div>
 </nav>
@@ -550,13 +550,14 @@
         <li><a href="#">Blog</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
         <li><a href="#">Press</a></li>
+        <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener">Not ready? Join the waitlist</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Legal</div>
       <ul class="footer-links">
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
         <li><a href="#">Cookie Policy</a></li>
       </ul>
     </div>
@@ -568,6 +569,10 @@
 </footer>
 
 <script>
+  // TODO(demo-url): replace with the real demo-booking link (e.g. Calendly)
+  // before this deploys. Must match the DEMO_URL in index.html.
+  const DEMO_URL = 'PLACEHOLDER_DEMO_URL';
+
   // NOTE: verify hello@housemore.com exists; site domain is housemore.app
   const CONTACT_EMAIL = 'hello@housemore.com';
 
@@ -607,6 +612,10 @@
   document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') toggleMobileMenu(false);
+    });
+
+    document.querySelectorAll('[data-cta="demo"]').forEach(a => {
+      a.href = DEMO_URL;
     });
   });
 </script>
