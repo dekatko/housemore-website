@@ -123,7 +123,7 @@ overflow-x: hidden;
 
 nav {
 position: fixed;
-top: 48px;
+top: 0;
 left: 0;
 right: 0;
 z-index: 100;
@@ -195,7 +195,7 @@ display: grid;
 grid-template-columns: 1fr 1fr;
 align-items: center;
 gap: 40px;
-padding: 168px 6% 80px;
+padding: 120px 6% 80px;
 position: relative;
 overflow: hidden;
 }
@@ -378,6 +378,65 @@ overflow: hidden;
 position: relative;
 }
 
+
+.proof {
+padding: 0 6% 80px;
+display: flex;
+justify-content: center;
+}
+
+.proof-card {
+max-width: 780px;
+width: 100%;
+background: var(--teal-faint);
+border: 1px solid var(--teal-muted);
+border-radius: 20px;
+padding: 40px 44px;
+text-align: center;
+}
+
+.proof-quote {
+font-family: 'Fraunces', serif;
+font-size: 22px;
+font-weight: 500;
+line-height: 1.5;
+color: var(--dark);
+font-style: italic;
+margin: 0 0 20px;
+}
+
+.proof-attribution {
+font-family: 'DM Sans', sans-serif;
+font-size: 15px;
+color: var(--mid);
+margin-bottom: 12px;
+}
+
+.proof-name {
+font-weight: 700;
+color: var(--dark);
+}
+
+.proof-metric {
+display: inline-block;
+font-family: 'DM Sans', sans-serif;
+font-size: 14px;
+font-weight: 600;
+color: var(--teal-dark);
+background: white;
+border: 1px solid var(--teal-muted);
+border-radius: 999px;
+padding: 8px 18px;
+}
+
+@media (max-width: 768px) {
+.proof-card {
+padding: 32px 24px;
+}
+.proof-quote {
+font-size: 19px;
+}
+}
 
 .problem {
 background: var(--dark);
@@ -1138,7 +1197,7 @@ transform: translateY(0);
 @media (max-width: 900px) {
 .hero {
 grid-template-columns: 1fr;
-padding-top: 100px;
+padding-top: 52px;
 }
 
 .hero-visual {
@@ -1551,85 +1610,6 @@ overflow: visible;
 
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- LAUNCH BANNER -->
-  <style>
-    #launch-banner {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      min-height: 48px;
-      height: auto;
-      background: var(--teal-dark);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      z-index: 200;
-      padding: 0 48px;
-    }
-    #launch-banner a {
-      color: white;
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      white-space: nowrap;
-    }
-    #launch-banner .banner-dismiss {
-      position: absolute;
-      right: 16px;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      line-height: 1;
-      padding: 4px 8px;
-      opacity: 0.8;
-    }
-    @media (max-width: 480px) {
-      #launch-banner {
-        min-height: 48px;
-        height: auto;
-        padding: 8px 44px 8px 12px;
-        font-size: 13px;
-      }
-    }
-  </style>
-  <div id="launch-banner" role="region" aria-label="Announcement">
-    <span><span aria-hidden="true">🚀</span> <span data-i18n="banner.text">Housemore is coming soon —</span></span>
-    <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" data-i18n="banner.cta">Join the waitlist</a>
-    <button class="banner-dismiss" aria-label="Dismiss announcement" onclick="dismissBanner()"><span aria-hidden="true">×</span></button>
-  </div>
-  <script>
-    function dismissBanner() {
-      var banner = document.getElementById('launch-banner');
-      var nav = document.querySelector('nav');
-      if (banner) banner.style.display = 'none';
-      if (nav) nav.style.top = '0';
-      localStorage.setItem('banner-dismissed', 'true');
-    }
-    if (localStorage.getItem('banner-dismissed') === 'true') {
-      document.addEventListener('DOMContentLoaded', function() {
-        var banner = document.getElementById('launch-banner');
-        var nav = document.querySelector('nav');
-        if (banner) banner.style.display = 'none';
-        if (nav) nav.style.top = '0';
-      });
-    } else {
-      document.addEventListener('DOMContentLoaded', function() {
-        var banner = document.getElementById('launch-banner');
-        var nav = document.querySelector('nav');
-        if (!banner || !nav) return;
-        new ResizeObserver(function(entries) {
-          nav.style.top = entries[0].contentRect.height + 'px';
-        }).observe(banner);
-      });
-    }
-  </script>
-
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
@@ -1668,7 +1648,7 @@ overflow: visible;
         <span class="lang-divider" aria-hidden="true">|</span>
         <button class="lang-btn" id="lang-ru" data-lang="ru" aria-pressed="false" aria-label="Switch to Russian" onclick="setLang('ru')">RU</button>
       </li>
-      <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.cta">Join the Waitlist</a></li>
+      <li><a href="#" target="_blank" rel="noopener" class="nav-cta" data-cta="demo" data-i18n="nav.cta">Book a Demo</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger"
             aria-label="Open menu" aria-expanded="false"
@@ -1703,8 +1683,8 @@ overflow: visible;
             <button class="lang-btn" id="m-lang-ru" data-lang="ru" aria-pressed="false" aria-label="Switch to Russian" onclick="setLang('ru')">RU</button>
           </div>
         </li>
-        <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener"
-               class="nav-mobile-cta" data-i18n="nav.cta">Join the Waitlist</a></li>
+        <li><a href="#" target="_blank" rel="noopener"
+               class="nav-mobile-cta" data-cta="demo" data-i18n="nav.cta">Book a Demo</a></li>
       </ul>
     </div>
   </nav>
@@ -1713,14 +1693,14 @@ overflow: visible;
   <section class="hero" id="main" role="main">
     <div class="hero-content">
       <div class="hero-badge" data-i18n="hero.badge">The Household Relationship Platform</div>
-      <h1 class="hero-title" data-i18n="hero.title">Know every household.<br><em>Deliver every time.</em></h1>
-      <p class="hero-subtitle" data-i18n="hero.subtitle">Housemore gives every client home its own living profile — preferences, notes, visit history, and team handoff context — so every team member walks in prepared, so you keep the clients you've earned.</p>
+      <h1 class="hero-title" data-i18n="hero.title">You built the client relationships.<br>Don't lose them <em>when a cleaner quits.</em></h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Housemore gives every client home a living profile — preferences, access details, visit history, handoff notes — so any team member walks in prepared, and the knowledge stays in your business instead of walking out the door. Web dashboard + mobile app.</p>
       <div class="hero-actions">
-        <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="btn-primary" data-i18n="hero.cta1">
-          Join the Waitlist →
+        <a href="#" target="_blank" rel="noopener" class="btn-primary" data-cta="demo" data-i18n="hero.cta1">
+          Book a 20-min demo →
         </a>
-        <a href="#household-profiles" class="btn-secondary" data-i18n="hero.cta2">
-          See Household Profiles
+        <a href="#how" class="btn-secondary" data-i18n="hero.cta2">
+          See how it works
         </a>
       </div>
       <div class="hero-trust">
@@ -1758,6 +1738,18 @@ overflow: visible;
       </div>
     </div>
   </section>
+
+  <!-- PROOF (pending Turner quote approval — uncomment and fill in below before deploy)
+  <section class="proof">
+    <div class="proof-card">
+      <blockquote class="proof-quote">[[TURNER QUOTE — pending approval]]</blockquote>
+      <div class="proof-attribution">
+        <span class="proof-name">Turner Home Management</span> · Greater Boston
+      </div>
+      <div class="proof-metric">[[METRIC — pending]]</div>
+    </div>
+  </section>
+  -->
 
   <!-- PROBLEM SECTION -->
   <section class="problem">
@@ -1978,7 +1970,7 @@ overflow: visible;
           <li data-i18n="solo.feat5">1 team member (you)</li>
         </ul>
         <div class="plan-footer">
-          <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta outline" data-i18n="solo.cta">Get Early Access</a>
+          <a href="#" target="_blank" rel="noopener" class="plan-cta outline" data-cta="demo" data-i18n="solo.cta">Get Early Access</a>
         </div>
       </div>
 
@@ -2001,7 +1993,7 @@ overflow: visible;
         </ul>
         <div class="plan-footer">
           <span class="plan-seat" data-i18n="crew.trial">Founding members get extended free access</span>
-          <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta solid" data-i18n="crew.cta">Join the Waitlist</a>
+          <a href="#" target="_blank" rel="noopener" class="plan-cta solid" data-cta="demo" data-i18n="crew.cta">Book a Demo</a>
         </div>
       </div>
 
@@ -2023,7 +2015,7 @@ overflow: visible;
           <li data-i18n="pro.feat6">Priority support</li>
         </ul>
         <div class="plan-footer">
-          <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="plan-cta outline" data-i18n="pro.cta">Get Early Access</a>
+          <a href="#" target="_blank" rel="noopener" class="plan-cta outline" data-cta="demo" data-i18n="pro.cta">Get Early Access</a>
         </div>
       </div>
     </div>
@@ -2091,7 +2083,7 @@ overflow: visible;
     <p data-i18n="cta.sub">Housemore builds institutional knowledge about every household your team serves — so every visit is prepared, every handoff is seamless, so you keep the clients your team has earned.</p>
 
     <div class="cta-actions">
-      <a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener" class="btn-primary" data-i18n="cta.cta1" style="font-size:16px; padding:18px 36px;">Join the Waitlist →</a>
+      <a href="#" target="_blank" rel="noopener" class="btn-primary" data-cta="demo" data-i18n="cta.cta1" style="font-size:16px; padding:18px 36px;">Book your demo →</a>
       <a href="#household-profiles" class="btn-secondary"
         style="font-size:16px; padding:18px 28px; border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">See
         All Features</a>
@@ -2143,13 +2135,14 @@ overflow: visible;
           <li><a href="#">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="#">Press</a></li>
+          <li><a href="https://tally.so/r/PdGlEe" target="_blank" rel="noopener">Not ready? Join the waitlist</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Legal</div>
         <ul class="footer-links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
           <li><a href="#">Cookie Policy</a></li>
         </ul>
       </div>
@@ -2192,23 +2185,27 @@ overflow: visible;
   </script>
 
   <script>
+  // ─── CONFIG ───────────────────────────────────────────────────────
+  // TODO(demo-url): replace with the real demo-booking link (e.g. Calendly)
+  // before this deploys. Every element with data-cta="demo" gets wired to
+  // this single URL on load — update it here only.
+  const DEMO_URL = 'PLACEHOLDER_DEMO_URL';
+
   // ─── TRANSLATIONS ─────────────────────────────────────────────────
   const translations = {
     en: {
-      "banner.text":    "Housemore is coming soon —",
-      "banner.cta":     "Join the waitlist",
 
       "nav.profiles":   "Household Profiles",
       "nav.features":   "Features",
       "nav.how":        "How It Works",
       "nav.pricing":    "Pricing",
-      "nav.cta":        "Join the Waitlist",
+      "nav.cta":        "Book a Demo",
 
       "hero.badge":     "The Household Relationship Platform",
-      "hero.title":     "Know every household.<br><em>Deliver every time.</em>",
-      "hero.subtitle":  "Housemore gives every client home its own living profile — preferences, notes, visit history, and team handoff context — so every team member walks in prepared, so you keep the clients you've earned.",
-      "hero.cta1":      "Join the Waitlist →",
-      "hero.cta2":      "See Household Profiles",
+      "hero.title":     "You built the client relationships.<br>Don't lose them <em>when a cleaner quits.</em>",
+      "hero.subtitle":  "Housemore gives every client home a living profile — preferences, access details, visit history, handoff notes — so any team member walks in prepared, and the knowledge stays in your business instead of walking out the door. Web dashboard + mobile app.",
+      "hero.cta1":      "Book a 20-min demo →",
+      "hero.cta2":      "See how it works",
       "hero.trust":     "In beta with a 10-person cleaning company in Boston",
       "hero.trust2":    "Built hands-on with the teams who'll use it every day",
 
@@ -2222,8 +2219,8 @@ overflow: visible;
 
       "cta.h2":         "Stop losing clients<br>when your <em>team changes.</em>",
       "cta.sub":        "Housemore builds institutional knowledge about every household your team serves — so every visit is prepared, every handoff is seamless, so you keep the clients your team has earned.",
-      "cta.cta1":       "Join the Waitlist →",
-      "cta.fine":       "Free to join · Be first when we launch · No spam",
+      "cta.cta1":       "Book your demo →",
+      "cta.fine":       "Free 20-minute demo · No pressure · No spam",
 
       "lang.title":     "Your team works in their language.<br>Household notes sync across all of them.",
       "lang.desc":      "The entire app is available in Portuguese (Brazil), Spanish, and Russian. Every team member works in their own language — scheduling, tasks, check-ins, and notifications all switch automatically.",
@@ -2308,7 +2305,7 @@ overflow: visible;
       "crew.feat4":    "Time tracking &amp; payroll data",
       "crew.feat5":    "Household-specific task checklists",
       "crew.feat6":    "Up to 5 team members (+$8/mo per additional seat)",
-      "crew.cta":      "Join the Waitlist",
+      "crew.cta":      "Book a Demo",
       "crew.trial":    "Founding members get extended free access",
       "pro.name":      "Pro",
       "pro.desc":      "For growing operations. The full household relationship platform with advanced analytics, client portal access, and priority support.",
@@ -2321,20 +2318,18 @@ overflow: visible;
       "pro.cta":       "Get Early Access",
     },
     pt: {
-      "banner.text":    "O Housemore chega em breve —",
-      "banner.cta":     "Entrar na lista de espera",
 
       "nav.profiles":   "Perfis de Residência",
       "nav.features":   "Funcionalidades",
       "nav.how":        "Como Funciona",
       "nav.pricing":    "Preços",
-      "nav.cta":        "Entrar na Lista de Espera",
+      "nav.cta":        "[[TRANSLATE]]",
 
       "hero.badge":     "A Plataforma de Relacionamento Domiciliar",
-      "hero.title":     "Conheça cada lar.<br><em>Entregue sempre.</em>",
-      "hero.subtitle":  "O Housemore dá a cada lar do cliente um perfil vivo — preferências, anotações, histórico de visitas e contexto de passagem de equipe — para que cada membro chegue preparado e você mantenha os clientes que conquistou.",
-      "hero.cta1":      "Entrar na Lista de Espera →",
-      "hero.cta2":      "Ver Perfis de Residência",
+      "hero.title":     "[[TRANSLATE]]",
+      "hero.subtitle":  "[[TRANSLATE]]",
+      "hero.cta1":      "[[TRANSLATE]]",
+      "hero.cta2":      "[[TRANSLATE]]",
       "hero.trust":     "Em beta com uma empresa de limpeza de 10 pessoas em Boston",
       "hero.trust2":    "Desenvolvido lado a lado com as equipes que vão usá-lo todo dia",
 
@@ -2348,8 +2343,8 @@ overflow: visible;
 
       "cta.h2":         "Pare de perder clientes<br>quando sua <em>equipe muda.</em>",
       "cta.sub":        "O Housemore constrói conhecimento institucional sobre cada domicílio que sua equipe atende — para que cada visita seja preparada, cada passagem seja fluida e você mantenha os clientes que sua equipe conquistou.",
-      "cta.cta1":       "Entrar na Lista de Espera →",
-      "cta.fine":       "Grátis para entrar · Seja o primeiro no lançamento · Sem spam",
+      "cta.cta1":       "[[TRANSLATE]]",
+      "cta.fine":       "[[TRANSLATE]]",
 
       "lang.title":     "Sua equipe trabalha no próprio idioma.<br>As notas de domicílio sincronizam em todos eles.",
       "lang.desc":      "Todo o app — agendamentos, listas de tarefas, check-ins e notificações — está completamente disponível em Português do Brasil. Sem gambiarras, sem prints traduzidos. A coisa real.",
@@ -2434,7 +2429,7 @@ overflow: visible;
       "crew.feat4":    "Controle de tempo &amp; dados de folha de pagamento",
       "crew.feat5":    "Checklists de tarefas específicas do domicílio",
       "crew.feat6":    "Até 5 membros (+$8/mês por assento adicional)",
-      "crew.cta":      "Entrar na Lista de Espera",
+      "crew.cta":      "[[TRANSLATE]]",
       "crew.trial":    "Membros fundadores têm acesso gratuito estendido",
       "pro.name":      "Pro",
       "pro.desc":      "Para operações em crescimento. A plataforma completa de relacionamento domiciliar com análises avançadas, acesso ao portal do cliente e suporte prioritário.",
@@ -2447,20 +2442,18 @@ overflow: visible;
       "pro.cta":       "Acesso Antecipado",
     },
     es: {
-      "banner.text":    "Housemore llega pronto —",
-      "banner.cta":     "Únete a la lista de espera",
 
       "nav.profiles":   "Perfiles del Hogar",
       "nav.features":   "Funcionalidades",
       "nav.how":        "Cómo Funciona",
       "nav.pricing":    "Precios",
-      "nav.cta":        "Unirse a la Lista de Espera",
+      "nav.cta":        "[[TRANSLATE]]",
 
       "hero.badge":     "La Plataforma de Relaciones del Hogar",
-      "hero.title":     "Conoce cada hogar.<br><em>Entrega siempre.</em>",
-      "hero.subtitle":  "Housemore le da a cada hogar de cliente su propio perfil vivo — preferencias, notas, historial de visitas y contexto de cambio de equipo — para que cada miembro llegue preparado y conserves los clientes que te has ganado.",
-      "hero.cta1":      "Unirse a la Lista de Espera →",
-      "hero.cta2":      "Ver Perfiles del Hogar",
+      "hero.title":     "[[TRANSLATE]]",
+      "hero.subtitle":  "[[TRANSLATE]]",
+      "hero.cta1":      "[[TRANSLATE]]",
+      "hero.cta2":      "[[TRANSLATE]]",
       "hero.trust":     "En beta con una empresa de limpieza de 10 personas en Boston",
       "hero.trust2":    "Desarrollado junto a los equipos que lo usarán cada día",
 
@@ -2474,8 +2467,8 @@ overflow: visible;
 
       "cta.h2":         "Deja de perder clientes<br>cuando tu <em>equipo cambia.</em>",
       "cta.sub":        "Housemore construye conocimiento institucional sobre cada hogar que atiende tu equipo — para que cada visita esté preparada, cada cambio sea fluido y conserves los clientes que tu equipo se ha ganado.",
-      "cta.cta1":       "Unirse a la Lista de Espera →",
-      "cta.fine":       "Gratis unirte · Sé el primero al lanzamiento · Sin spam",
+      "cta.cta1":       "[[TRANSLATE]]",
+      "cta.fine":       "[[TRANSLATE]]",
 
       "lang.title":     "Tu equipo trabaja en su idioma.<br>Las notas del hogar se sincronizan en todos ellos.",
       "lang.desc":      "Toda la app — agenda, listas de tareas, check-ins y notificaciones — está completamente disponible en español. Sin parches ni capturas traducidas. Lo real.",
@@ -2560,7 +2553,7 @@ overflow: visible;
       "crew.feat4":    "Control de tiempo &amp; datos de nómina",
       "crew.feat5":    "Checklists de tareas específicas del hogar",
       "crew.feat6":    "Hasta 5 miembros (+$8/mes por puesto adicional)",
-      "crew.cta":      "Unirse a la Lista de Espera",
+      "crew.cta":      "[[TRANSLATE]]",
       "crew.trial":    "Los miembros fundadores obtienen acceso gratuito extendido",
       "pro.name":      "Pro",
       "pro.desc":      "Para operaciones en crecimiento. La plataforma completa de relaciones del hogar con análisis avanzados, acceso al portal del cliente y soporte prioritario.",
@@ -2573,20 +2566,18 @@ overflow: visible;
       "pro.cta":       "Acceso Anticipado",
     },
     ru: {
-      "banner.text":    "Housemore скоро запускается —",
-      "banner.cta":     "Присоединиться к списку ожидания",
 
       "nav.profiles":   "Профили домов",
       "nav.features":   "Функции",
       "nav.how":        "Как Это Работает",
       "nav.pricing":    "Цены",
-      "nav.cta":        "Записаться в список ожидания",
+      "nav.cta":        "[[TRANSLATE]]",
 
       "hero.badge":     "Платформа для управления отношениями с домохозяйствами",
-      "hero.title":     "Знайте каждый дом.<br><em>Выполняйте каждый раз.</em>",
-      "hero.subtitle":  "Housemore даёт каждому дому клиента живой профиль — предпочтения, заметки, историю визитов и контекст передачи команды — чтобы каждый сотрудник приходил подготовленным, а вы сохраняли клиентов, которых заработали.",
-      "hero.cta1":      "Записаться в список ожидания →",
-      "hero.cta2":      "Смотреть Профили Домов",
+      "hero.title":     "[[TRANSLATE]]",
+      "hero.subtitle":  "[[TRANSLATE]]",
+      "hero.cta1":      "[[TRANSLATE]]",
+      "hero.cta2":      "[[TRANSLATE]]",
       "hero.trust":     "В бета-тестировании с клининговой компанией из 10 человек в Бостоне",
       "hero.trust2":    "Создаётся вместе с командами, которые будут использовать его каждый день",
 
@@ -2600,8 +2591,8 @@ overflow: visible;
 
       "cta.h2":         "Перестаньте терять клиентов<br>когда <em>меняется команда.</em>",
       "cta.sub":        "Housemore строит институциональные знания о каждом доме, который обслуживает ваша команда — чтобы каждый визит был подготовлен, каждая передача прошла без потерь, и вы сохраняли клиентов, которых заработала ваша команда.",
-      "cta.cta1":       "Записаться в список ожидания →",
-      "cta.fine":       "Бесплатно · Будьте первыми при запуске · Без спама",
+      "cta.cta1":       "[[TRANSLATE]]",
+      "cta.fine":       "[[TRANSLATE]]",
 
       "lang.title":     "Ваша команда работает на своём языке.<br>Заметки о домах синхронизируются во всех.",
       "lang.desc":      "Всё приложение — расписания, списки задач, отметки о прибытии и уведомления — полностью доступно на русском языке. Без костылей, без скриншотов с переводом. Настоящая локализация.",
@@ -2686,7 +2677,7 @@ overflow: visible;
       "crew.feat4":    "Учёт времени &amp; данные для зарплаты",
       "crew.feat5":    "Чеклисты задач для каждого дома",
       "crew.feat6":    "До 5 членов команды (+$8/мес за каждое доп. место)",
-      "crew.cta":      "Записаться в список ожидания",
+      "crew.cta":      "[[TRANSLATE]]",
       "crew.trial":    "Основатели получают расширенный бесплатный доступ",
       "pro.name":      "Pro",
       "pro.desc":      "Для растущих операций. Полная платформа отношений с домохозяйствами с расширенной аналитикой, доступом к порталу клиента и приоритетной поддержкой.",
@@ -2756,6 +2747,11 @@ overflow: visible;
     // Close on Escape
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') toggleMobileMenu(false);
+    });
+
+    // Wire every "Book a demo" CTA to the single demo-booking URL.
+    document.querySelectorAll('[data-cta="demo"]').forEach(a => {
+      a.href = DEMO_URL;
     });
   });
   </script>
