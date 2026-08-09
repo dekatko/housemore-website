@@ -1610,6 +1610,141 @@ overflow: visible;
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- === Mobile + Web remediation styles === -->
+  <style id="platform-styles">
+    /* Hero availability row */
+    .hero-availability {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .avail-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--teal-faint);
+      border: 1px solid var(--teal-muted);
+      color: var(--teal-dark);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .avail-pill svg { display: block; }
+
+    /* Browser frame — desktop sibling of .phone-frame */
+    .browser-frame {
+      width: 100%;
+      max-width: 640px;
+      background: var(--dark);
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 30px 80px rgba(0, 0, 0, 0.22),
+        0 8px 24px rgba(0, 0, 0, 0.14);
+    }
+    .browser-bar {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      background: #1b2b2a;
+    }
+    .browser-dots { display: flex; gap: 7px; }
+    .browser-dots span {
+      width: 11px; height: 11px; border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+    }
+    .browser-url {
+      flex: 1;
+      margin-left: 8px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.10);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: 0.3px;
+    }
+    .browser-screen {
+      background: var(--bg-soft);
+      aspect-ratio: 16 / 10;
+      width: 100%;
+    }
+    .browser-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+    /* Platform section: mobile + web */
+    .platform { padding: 120px 6%; background: var(--bg); }
+    .platform .section-header { margin-bottom: 64px; }
+    .platform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .platform-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .platform-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      background: var(--teal-faint);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    .platform-card h3 { font-size: 24px; line-height: 1.2; margin: 0 0 10px; color: var(--dark); }
+    .platform-card > p { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0 0 26px; max-width: 42ch; }
+    .platform-visual { margin-bottom: 28px; display: flex; justify-content: center; width: 100%; }
+    .platform-visual .phone-frame { transform: scale(0.92); }
+    .platform-list { list-style: none; padding: 0; margin: 0; width: 100%; max-width: 360px; text-align: left; }
+    .platform-list li {
+      position: relative;
+      padding: 9px 0 9px 30px;
+      font-size: 15px;
+      color: var(--mid);
+      border-top: 1px solid var(--border);
+    }
+    .platform-list li:first-child { border-top: none; }
+    .platform-list li::before {
+      content: '';
+      position: absolute;
+      left: 2px; top: 50%;
+      width: 16px; height: 16px;
+      margin-top: -8px;
+      border-radius: 50%;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpolyline points='1.5,5.5 4,8 8.5,2.5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 10px no-repeat,
+        var(--teal);
+    }
+    @media (max-width: 860px) {
+      .platform-grid { grid-template-columns: 1fr; }
+      .platform { padding: 80px 6%; }
+    }
+  </style>
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
@@ -1636,7 +1771,7 @@ overflow: visible;
     </a>
     <ul class="nav-links">
       <li><a href="#household-profiles" data-i18n="nav.profiles">Household Profiles</a></li>
-      <li><a href="#household-profiles" data-i18n="nav.features">Features</a></li>
+      <li><a href="#platform" data-i18n="nav.platform">Mobile &amp; Web</a></li>
       <li><a href="#how" data-i18n="nav.how">How It Works</a></li>
       <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
       <li class="lang-switcher">
@@ -1669,7 +1804,7 @@ overflow: visible;
     <div id="nav-mobile">
       <ul class="nav-mobile-list">
         <li><a href="#household-profiles" data-i18n="nav.profiles">Household Profiles</a></li>
-        <li><a href="#household-profiles" data-i18n="nav.features">Features</a></li>
+        <li><a href="#platform" data-i18n="nav.platform">Mobile &amp; Web</a></li>
         <li><a href="#how" data-i18n="nav.how">How It Works</a></li>
         <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
         <li>
@@ -1717,6 +1852,20 @@ overflow: visible;
           <strong data-i18n="hero.trust">In beta with a 10-person cleaning company in Boston</strong><br>
           <span data-i18n="hero.trust2">Built hands-on with the teams who'll use it every day</span>
         </div>
+      </div>
+      <div class="hero-availability" aria-label="Available platforms">
+        <span class="avail-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-3.07 2.7-4.1 2.73-4.11-.85-1.26-1.73-2.5-3.12-2.53-1.37-.02-1.82.81-3.37.81-1.56 0-2.05-.78-3.34-.83-1.34-.05-2.36 1.35-3.22 2.6-1.75 2.55-3.1 7.19-1.29 10.33.9 1.56 2.51 2.54 4.25 2.57 1.33.03 2.58-.89 3.39-.89.81 0 2.33 1.1 3.93.94.67-.03 2.55-.27 3.76-2.04-.1-.06-2.25-1.31-2.22-3.91M14.62 4.5c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44"/></svg>
+          <span data-i18n="avail.ios">iPhone &amp; iPad</span>
+        </span>
+        <span class="avail-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 9h12v9a1 1 0 0 1-1 1h-1v2a1 1 0 1 1-2 0v-2h-2v2a1 1 0 1 1-2 0v-2H9a1 1 0 0 1-1-1V9Zm-3 .5a1 1 0 0 1 2 0v5a1 1 0 1 1-2 0v-5Zm16 0a1 1 0 0 1 2 0v5a1 1 0 1 1-2 0v-5ZM7.5 8c.2-2 1.7-3.6 3.7-4.2l-.8-1.3a.3.3 0 0 1 .5-.3l.9 1.4a6 6 0 0 1 2.4 0l.9-1.4a.3.3 0 0 1 .5.3l-.8 1.3C16.8 4.4 18.3 6 18.5 8h-11Z"/></svg>
+          <span data-i18n="avail.android">Android</span>
+        </span>
+        <span class="avail-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.4 2.5 15.6 0 18M12 3c-2.5 2.4-2.5 15.6 0 18"/></svg>
+          <span data-i18n="avail.web">Web dashboard</span>
+        </span>
       </div>
     </div>
 
@@ -1805,16 +1954,9 @@ overflow: visible;
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="overflow:hidden; padding:0;" aria-hidden="true">
-          <picture>
-            <source type="image/webp" srcset="calendar_heatmap-icon-104w.webp">
-            <img src="calendar_heatmap.PNG" alt=""
-              style="width:52px; height:52px; object-fit:cover; object-position:top; border-radius:10px; display:block;"
-              width="52" height="52" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="feature-title" data-i18n="feat4.title">Smart Scheduling</div>
-        <div class="feature-desc" data-i18n="feat4.desc">Book jobs against a household, not a blank timeslot. Every booking inherits the context of the relationship.</div>
+        <div class="feature-icon-wrap" aria-hidden="true">🗓️</div>
+        <div class="feature-title" data-i18n="feat4.title">Booking Studio</div>
+        <div class="feature-desc" data-i18n="feat4.desc">Drag-and-drop weekly scheduling in the web dashboard. Assign jobs across your team and locations, with conflicts and time-off flagged as you build the week — and every booking carries the household's context.</div>
       </div>
 
       <div class="feature-card">
@@ -1827,6 +1969,24 @@ overflow: visible;
         <div class="feature-icon-wrap" aria-hidden="true">💰</div>
         <div class="feature-title" data-i18n="feat6.title">Payment Tracking</div>
         <div class="feature-desc" data-i18n="feat6.desc">Log payments, track outstanding balances, and see revenue at a glance. Always know exactly where your money stands.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" aria-hidden="true">📥</div>
+        <div class="feature-title" data-i18n="feat7.title">Leads &amp; Inquiries</div>
+        <div class="feature-desc" data-i18n="feat7.desc">New booking requests land in one inbox. Triage leads, follow up, and convert them into clients and scheduled jobs — without losing a single one.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" aria-hidden="true">🌐</div>
+        <div class="feature-title" data-i18n="feat8.title">Online Booking Page</div>
+        <div class="feature-desc" data-i18n="feat8.desc">Give clients an embeddable booking link. Requests flow straight into your inquiries inbox — no phone tag, no missed jobs.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap" aria-hidden="true">🏢</div>
+        <div class="feature-title" data-i18n="feat9.title">Team &amp; Multi-Location</div>
+        <div class="feature-desc" data-i18n="feat9.desc">Manage staff, availability, and pay across one location or many. Smart Replacement finds qualified cover the moment someone calls out.</div>
       </div>
     </div>
   </section>
@@ -1871,6 +2031,66 @@ overflow: visible;
           </div>
         </div>
         <p class="screenshot-caption" data-i18n="screenshot2.caption">Post-visit notes your whole team can see</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM: MOBILE + WEB -->
+  <section class="platform" id="platform">
+    <div class="section-header">
+      <span class="section-label" data-i18n="platform.label">One Platform, Every Device</span>
+      <h2 data-i18n="platform.h2">Run it from the office<br>or from the doorstep.</h2>
+      <p data-i18n="platform.sub">Housemore is a web dashboard and a mobile app sharing one live record. Owners plan on the big screen; field teams and clients work from their phones — same household, same context, always in sync.</p>
+    </div>
+
+    <div class="platform-grid">
+      <!-- WEB -->
+      <div class="platform-card">
+        <span class="platform-kicker" data-i18n="platform.web.kicker">🖥️ Web Dashboard</span>
+        <div class="platform-visual">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url">app.housemore.app</div>
+            </div>
+            <div class="browser-screen">
+              <img src="ph-web-booking-studio.svg" alt="Web dashboard placeholder — Booking Studio"
+                   width="1280" height="800" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+        <h3 data-i18n="platform.web.title">The command center, in your browser</h3>
+        <p data-i18n="platform.web.desc">Where owners and admins run the whole operation on a full screen.</p>
+        <ul class="platform-list">
+          <li data-i18n="platform.web.li1">Booking Studio — drag-and-drop weekly scheduling</li>
+          <li data-i18n="platform.web.li2">Leads &amp; inquiries inbox with one-click convert</li>
+          <li data-i18n="platform.web.li3">Clients &amp; household profiles, with relationships</li>
+          <li data-i18n="platform.web.li4">Team, availability &amp; multi-location management</li>
+          <li data-i18n="platform.web.li5">Payments, billing &amp; printable daily run sheets</li>
+        </ul>
+      </div>
+
+      <!-- MOBILE -->
+      <div class="platform-card">
+        <span class="platform-kicker" data-i18n="platform.mobile.kicker">📱 Mobile App</span>
+        <div class="platform-visual">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="ph-mobile-employee-day.svg" alt="Mobile app placeholder — field schedule"
+                   style="width:100%; height:100%; object-fit:cover; object-position:top; display:block; border-radius:34px;"
+                   width="280" height="560" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+        <h3 data-i18n="platform.mobile.title">The whole team, in their pocket</h3>
+        <p data-i18n="platform.mobile.desc">For owners on the go, field staff on site, and clients who book from their phone. iPhone, iPad &amp; Android.</p>
+        <ul class="platform-list">
+          <li data-i18n="platform.mobile.li1">Field staff: schedule, geofence check-in &amp; checkout</li>
+          <li data-i18n="platform.mobile.li2">Post-visit notes, task checklists &amp; earnings</li>
+          <li data-i18n="platform.mobile.li3">Clients: browse, book &amp; track service requests</li>
+          <li data-i18n="platform.mobile.li4">In-app messaging between clients and your team</li>
+          <li data-i18n="platform.mobile.li5">Owners: dashboard &amp; approvals from anywhere</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -2691,6 +2911,144 @@ overflow: visible;
     }
   };
 
+  /* === Mobile + Web remediation: new & overridden strings === */
+  Object.assign(translations.en, {
+    "nav.platform":          "Mobile &amp; Web",
+    "avail.ios":             "iPhone &amp; iPad",
+    "avail.android":         "Android",
+    "avail.web":             "Web dashboard",
+    "feat4.title":           "Booking Studio",
+    "feat4.desc":            "Drag-and-drop weekly scheduling in the web dashboard. Assign jobs across your team and locations, with conflicts and time-off flagged as you build the week — and every booking carries the household's context.",
+    "feat7.title":           "Leads &amp; Inquiries",
+    "feat7.desc":            "New booking requests land in one inbox. Triage leads, follow up, and convert them into clients and scheduled jobs — without losing a single one.",
+    "feat8.title":           "Online Booking Page",
+    "feat8.desc":            "Give clients an embeddable booking link. Requests flow straight into your inquiries inbox — no phone tag, no missed jobs.",
+    "feat9.title":           "Team &amp; Multi-Location",
+    "feat9.desc":            "Manage staff, availability, and pay across one location or many. Smart Replacement finds qualified cover the moment someone calls out.",
+    "screenshots.sub":       "This is the mobile app. The household profile is the record — every visit builds it.",
+    "platform.label":        "One Platform, Every Device",
+    "platform.h2":           "Run it from the office<br>or from the doorstep.",
+    "platform.sub":          "Housemore is a web dashboard and a mobile app sharing one live record. Owners plan on the big screen; field teams and clients work from their phones — same household, same context, always in sync.",
+    "platform.web.kicker":   "🖥️ Web Dashboard",
+    "platform.web.title":    "The command center, in your browser",
+    "platform.web.desc":     "Where owners and admins run the whole operation on a full screen.",
+    "platform.web.li1":      "Booking Studio — drag-and-drop weekly scheduling",
+    "platform.web.li2":      "Leads &amp; inquiries inbox with one-click convert",
+    "platform.web.li3":      "Clients &amp; household profiles, with relationships",
+    "platform.web.li4":      "Team, availability &amp; multi-location management",
+    "platform.web.li5":      "Payments, billing &amp; printable daily run sheets",
+    "platform.mobile.kicker":"📱 Mobile App",
+    "platform.mobile.title": "The whole team, in their pocket",
+    "platform.mobile.desc":  "For owners on the go, field staff on site, and clients who book from their phone. iPhone, iPad &amp; Android.",
+    "platform.mobile.li1":   "Field staff: schedule, geofence check-in &amp; checkout",
+    "platform.mobile.li2":   "Post-visit notes, task checklists &amp; earnings",
+    "platform.mobile.li3":   "Clients: browse, book &amp; track service requests",
+    "platform.mobile.li4":   "In-app messaging between clients and your team",
+    "platform.mobile.li5":   "Owners: dashboard &amp; approvals from anywhere",
+  });
+  Object.assign(translations.pt, {
+    "nav.platform":          "Mobile &amp; Web",
+    "avail.ios":             "iPhone &amp; iPad",
+    "avail.android":         "Android",
+    "avail.web":             "Painel web",
+    "feat4.title":           "Booking Studio",
+    "feat4.desc":            "Agendamento semanal com arrastar e soltar no painel web. Distribua os serviços entre a equipe e as unidades, com conflitos e folgas sinalizados enquanto você monta a semana — e cada agendamento carrega o contexto da residência.",
+    "feat7.title":           "Leads &amp; Solicitações",
+    "feat7.desc":            "Novos pedidos de agendamento chegam em uma única caixa de entrada. Faça a triagem dos leads, acompanhe e converta em clientes e serviços agendados — sem perder nenhum.",
+    "feat8.title":           "Página de Agendamento Online",
+    "feat8.desc":            "Ofereça aos clientes um link de agendamento incorporável. Os pedidos vão direto para sua caixa de solicitações — sem ficar no telefone, sem serviço perdido.",
+    "feat9.title":           "Equipe &amp; Multiunidades",
+    "feat9.desc":            "Gerencie equipe, disponibilidade e pagamentos em uma ou várias unidades. A Substituição Inteligente encontra cobertura qualificada assim que alguém falta.",
+    "screenshots.sub":       "Este é o app mobile. O perfil de residência é o registro — cada visita o constrói.",
+    "platform.label":        "Uma Plataforma, Todos os Dispositivos",
+    "platform.h2":           "Use do escritório<br>ou da porta do cliente.",
+    "platform.sub":          "O Housemore é um painel web e um app mobile compartilhando um único registro ao vivo. Os donos planejam na tela grande; equipes em campo e clientes trabalham pelo celular — mesma residência, mesmo contexto, sempre em sincronia.",
+    "platform.web.kicker":   "🖥️ Painel Web",
+    "platform.web.title":    "A central de comando, no seu navegador",
+    "platform.web.desc":     "Onde donos e administradores tocam toda a operação em tela cheia.",
+    "platform.web.li1":      "Booking Studio — agendamento semanal arrastar e soltar",
+    "platform.web.li2":      "Caixa de leads &amp; solicitações com conversão em um clique",
+    "platform.web.li3":      "Perfis de clientes &amp; residências, com relacionamentos",
+    "platform.web.li4":      "Gestão de equipe, disponibilidade &amp; multiunidades",
+    "platform.web.li5":      "Pagamentos, cobrança &amp; roteiros diários para impressão",
+    "platform.mobile.kicker":"📱 App Mobile",
+    "platform.mobile.title": "Toda a equipe, no bolso",
+    "platform.mobile.desc":  "Para donos em movimento, equipe em campo e clientes que agendam pelo celular. iPhone, iPad &amp; Android.",
+    "platform.mobile.li1":   "Equipe de campo: agenda, check-in por geofence &amp; saída",
+    "platform.mobile.li2":   "Notas pós-visita, checklists de tarefas &amp; ganhos",
+    "platform.mobile.li3":   "Clientes: explorar, agendar &amp; acompanhar solicitações",
+    "platform.mobile.li4":   "Mensagens no app entre clientes e sua equipe",
+    "platform.mobile.li5":   "Donos: painel &amp; aprovações de qualquer lugar",
+  });
+  Object.assign(translations.es, {
+    "nav.platform":          "Móvil &amp; Web",
+    "avail.ios":             "iPhone &amp; iPad",
+    "avail.android":         "Android",
+    "avail.web":             "Panel web",
+    "screenshots.h2":        "Véalo en acción",
+    "feat4.title":           "Booking Studio",
+    "feat4.desc":            "Programación semanal con arrastrar y soltar en el panel web. Asigna trabajos entre tu equipo y sedes, con conflictos y ausencias señalados mientras armas la semana — y cada reserva lleva el contexto del hogar.",
+    "feat7.title":           "Leads &amp; Solicitudes",
+    "feat7.desc":            "Las nuevas solicitudes de reserva llegan a una sola bandeja. Clasifica los leads, haz seguimiento y conviértelos en clientes y trabajos programados — sin perder ninguno.",
+    "feat8.title":           "Página de Reservas Online",
+    "feat8.desc":            "Ofrece a los clientes un enlace de reserva incrustable. Las solicitudes llegan directo a tu bandeja — sin llamadas de ida y vuelta, sin trabajos perdidos.",
+    "feat9.title":           "Equipo &amp; Multisede",
+    "feat9.desc":            "Gestiona personal, disponibilidad y pagos en una sede o varias. El Reemplazo Inteligente encuentra cobertura calificada en cuanto alguien falta.",
+    "screenshots.sub":       "Esta es la app móvil. El perfil del hogar es el registro — cada visita lo construye.",
+    "platform.label":        "Una Plataforma, Cada Dispositivo",
+    "platform.h2":           "Úsalo desde la oficina<br>o desde la puerta del cliente.",
+    "platform.sub":          "Housemore es un panel web y una app móvil que comparten un único registro en vivo. Los dueños planifican en la pantalla grande; los equipos en campo y los clientes trabajan desde el móvil — mismo hogar, mismo contexto, siempre sincronizado.",
+    "platform.web.kicker":   "🖥️ Panel Web",
+    "platform.web.title":    "El centro de mando, en tu navegador",
+    "platform.web.desc":     "Donde dueños y administradores manejan toda la operación a pantalla completa.",
+    "platform.web.li1":      "Booking Studio — programación semanal arrastrar y soltar",
+    "platform.web.li2":      "Bandeja de leads &amp; solicitudes con conversión en un clic",
+    "platform.web.li3":      "Perfiles de clientes &amp; hogares, con relaciones",
+    "platform.web.li4":      "Gestión de equipo, disponibilidad &amp; multisede",
+    "platform.web.li5":      "Pagos, facturación &amp; hojas de ruta diarias imprimibles",
+    "platform.mobile.kicker":"📱 App Móvil",
+    "platform.mobile.title": "Todo el equipo, en su bolsillo",
+    "platform.mobile.desc":  "Para dueños en movimiento, personal en campo y clientes que reservan desde el móvil. iPhone, iPad &amp; Android.",
+    "platform.mobile.li1":   "Personal de campo: agenda, check-in por geocerca &amp; salida",
+    "platform.mobile.li2":   "Notas post-visita, listas de tareas &amp; ganancias",
+    "platform.mobile.li3":   "Clientes: explorar, reservar &amp; seguir solicitudes",
+    "platform.mobile.li4":   "Mensajería en la app entre clientes y tu equipo",
+    "platform.mobile.li5":   "Dueños: panel &amp; aprobaciones desde cualquier lugar",
+  });
+  Object.assign(translations.ru, {
+    "nav.platform":          "Моб. и веб",
+    "avail.ios":             "iPhone и iPad",
+    "avail.android":         "Android",
+    "avail.web":             "Веб-панель",
+    "feat4.title":           "Booking Studio",
+    "feat4.desc":            "Понедельное планирование перетаскиванием в веб-панели. Распределяйте работы по команде и локациям — конфликты и отгулы подсвечиваются прямо при составлении недели, и каждая запись несёт контекст дома.",
+    "feat7.title":           "Лиды и заявки",
+    "feat7.desc":            "Новые заявки на запись попадают в одну папку. Сортируйте лиды, ведите их и превращайте в клиентов и запланированные работы — не теряя ни одной.",
+    "feat8.title":           "Онлайн-страница записи",
+    "feat8.desc":            "Дайте клиентам встраиваемую ссылку для записи. Заявки идут прямо в папку входящих — без телефонных догонялок и упущенных работ.",
+    "feat9.title":           "Команда и несколько локаций",
+    "feat9.desc":            "Управляйте персоналом, доступностью и оплатой в одной локации или нескольких. Умная замена находит подходящую подмену, как только кто-то выбывает.",
+    "screenshots.sub":       "Это мобильное приложение. Профиль дома — это запись, и каждый визит её дополняет.",
+    "platform.label":        "Одна платформа, любое устройство",
+    "platform.h2":           "Работайте из офиса<br>или прямо у двери клиента.",
+    "platform.sub":          "Housemore — это веб-панель и мобильное приложение с единой живой записью. Владельцы планируют на большом экране; выездные команды и клиенты работают со смартфона — тот же дом, тот же контекст, всегда синхронно.",
+    "platform.web.kicker":   "🖥️ Веб-панель",
+    "platform.web.title":    "Центр управления — в браузере",
+    "platform.web.desc":     "Здесь владельцы и администраторы ведут всю работу на большом экране.",
+    "platform.web.li1":      "Booking Studio — понедельное планирование перетаскиванием",
+    "platform.web.li2":      "Папка лидов и заявок с конвертацией в один клик",
+    "platform.web.li3":      "Профили клиентов и домов со связями",
+    "platform.web.li4":      "Управление командой, доступностью и локациями",
+    "platform.web.li5":      "Платежи, счета и печатные маршрутные листы",
+    "platform.mobile.kicker":"📱 Мобильное приложение",
+    "platform.mobile.title": "Вся команда — в кармане",
+    "platform.mobile.desc":  "Для владельцев в разъездах, персонала на объекте и клиентов, которые записываются с телефона. iPhone, iPad и Android.",
+    "platform.mobile.li1":   "Выездной персонал: график, гео-чек-ин и выход",
+    "platform.mobile.li2":   "Заметки после визита, чек-листы задач и заработок",
+    "platform.mobile.li3":   "Клиенты: просмотр, запись и отслеживание заявок",
+    "platform.mobile.li4":   "Сообщения в приложении между клиентами и командой",
+    "platform.mobile.li5":   "Владельцы: панель и согласования откуда угодно",
+  });
   let currentLang = localStorage.getItem('housemore-lang') || 'en';
 
   function setLang(lang) {

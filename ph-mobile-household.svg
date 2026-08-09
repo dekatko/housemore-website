@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" width="280" height="560" role="img" aria-label="Placeholder screenshot: Household Profile (mobile)">
+
+  <rect x="0" y="0" width="280" height="560" fill="#F9FAFB"/>
+  <rect x="14" y="28" width="252" height="504" rx="11.200000000000001"
+        fill="#F0FDFA" stroke="#0D9488" stroke-width="2" stroke-dasharray="9 7" opacity="0.9"/>
+
+  <!-- image glyph -->
+  <g transform="translate(140, 224)" opacity="0.85">
+    <rect x="-44.800000000000004" y="-34.944" width="89.60000000000001" height="69.888" rx="6.272000000000001"
+          fill="#FFFFFF" stroke="#0D9488" stroke-width="2.5"/>
+    <circle cx="-18.816000000000003" cy="-13.440000000000001" r="8.96" fill="#14B8A6"/>
+    <path d="M -36.736000000000004 24.640000000000004 L -8.064 -4.48 L 13.440000000000001 18.816000000000003 L 24.640000000000004 7.168000000000001 L 36.736000000000004 24.640000000000004 Z"
+          fill="#0D9488"/>
+  </g>
+
+  <!-- PLACEHOLDER pill -->
+  <g transform="translate(140, 347.2)">
+    <rect x="-78" y="-16" width="156" height="32" rx="16" fill="#0D9488"/>
+    <text x="0" y="5" text-anchor="middle" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif"
+          font-size="13" font-weight="700" letter-spacing="1.5" fill="#FFFFFF">PLACEHOLDER</text>
+  </g>
+
+  <text x="140" y="403.2" text-anchor="middle"
+        font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif"
+        font-size="17" font-weight="700" fill="#0D1F1E">Household Profile</text>
+
+  <text x="140" y="428.2" text-anchor="middle"
+        font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif"
+        font-size="11" font-weight="500" fill="#6B7280">Replace with real screenshot</text>
+
+  <text x="140" y="449.2" text-anchor="middle"
+        font-family="ui-monospace,SFMono-Regular,Menlo,monospace"
+        font-size="10" font-weight="500" fill="#0D9488">280 × 560</text>
+
+  <!-- surface tag -->
+  <text x="140" y="520.8000000000001" text-anchor="middle"
+        font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif"
+        font-size="11" font-weight="600" letter-spacing="0.5" fill="#0F766E">
+    Housemore · Mobile app</text>
+</svg>
